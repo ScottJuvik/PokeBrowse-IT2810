@@ -1,6 +1,9 @@
 :root {
     --bg-primary: #eceff4;
     --text-primary: #2e3440;
+    --text-white: #ffffff;
+
+    --bg-error-page: #581c87;
 
     --link-hover-color: #2563eb;
 }
