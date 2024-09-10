@@ -1,12 +1,16 @@
 .layout {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto 1fr;
     min-height: 100vh;
     width: 100vw;
     overflow-x: hidden;
 
+    nav {
+        grid-row: 1;
+    }
+
     .content {
-        flex: 1;
+        grid-row: 2;
         overflow-y: auto;
     }
 }
