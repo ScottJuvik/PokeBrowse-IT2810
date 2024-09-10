@@ -1,9 +1,8 @@
-import './Home.module.css';
-import styles from './Home.module.css';
+import styles from './home.module.css';
 
 const Home = () => (
     <div className={styles.homeContainer}>
-        <main className="home">
+        <main>
             <h1>Hello World</h1>
         </main>
     </div>
