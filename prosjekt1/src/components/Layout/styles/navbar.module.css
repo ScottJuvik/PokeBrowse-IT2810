@@ -1,0 +1,25 @@
+@import '@styles/variables.css';
+
+.navbar {
+    background-color: var(--bg-primary);
+    padding: 1.5rem;
+    color: black;
+    box-shadow:
+        0 10px 15px rgba(0, 0, 0, 0.1),
+        0 4px 6px rgba(0, 0, 0, 0.1);
+
+    ul {
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+    }
+
+    a {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .active {
+        color: var(--link-hover-color);
+    }
+}
