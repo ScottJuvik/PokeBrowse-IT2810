@@ -10,9 +10,9 @@ interface ButtonProps {
 
 const Button = ({ text, onClick, disabled = false, variant = 'primary', size = 'medium' }: ButtonProps) => {
     const getButtonClasses = () => {
-        let baseClasses = styles.btn; 
-        baseClasses += ` ${styles[variant]}`; 
-        baseClasses += ` ${styles[size]}`; 
+        let baseClasses = styles.btn;
+        baseClasses += ` ${styles[variant]}`;
+        baseClasses += ` ${styles[size]}`;
         return baseClasses;
     };
 

@@ -22,15 +22,15 @@ describe('Button Component', () => {
     test('applies primary variant class', () => {
         render(<Button text="Primary Button" onClick={() => {}} variant="primary" />);
         const buttonElement = screen.getByText(/Primary Button/i);
-        expect(buttonElement).toHaveClass(styles.btn); // Using the CSS module class
-        expect(buttonElement).toHaveClass(styles.primary); // Primary variant class
+        expect(buttonElement).toHaveClass(styles.btn); 
+        expect(buttonElement).toHaveClass(styles.primary); 
     });
 
     test('applies secondary variant class', () => {
         render(<Button text="Secondary Button" onClick={() => {}} variant="secondary" />);
         const buttonElement = screen.getByText(/Secondary Button/i);
-        expect(buttonElement).toHaveClass(styles.btn); // Base class
-        expect(buttonElement).toHaveClass(styles.secondary); // Secondary variant class
+        expect(buttonElement).toHaveClass(styles.btn); 
+        expect(buttonElement).toHaveClass(styles.secondary); 
     });
 
     test('is disabled when the disabled prop is passed', () => {
@@ -42,6 +42,6 @@ describe('Button Component', () => {
     test('applies the correct size class', () => {
         render(<Button text="Large Button" onClick={() => {}} size="large" />);
         const buttonElement = screen.getByText(/Large Button/i);
-        expect(buttonElement).toHaveClass(styles.large); // Large size class
+        expect(buttonElement).toHaveClass(styles.large); 
     });
 });
