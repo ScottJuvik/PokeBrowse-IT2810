@@ -1,3 +1,4 @@
+import NotFoundPage from '@/routes/errors/notFoundPage.tsx';
 import Layout from '@components/Layout/layout.tsx';
 import ErrorPage from '@routes/errors/errorPage.tsx';
 import Home from '@routes/home/home.tsx';
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home />,
+            },
+            {
+                path: '*',
+                element: <NotFoundPage />,
             },
         ],
     },
