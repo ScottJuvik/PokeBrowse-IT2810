@@ -1,9 +1,15 @@
 :root {
-    --bg-primary: #eceff4;
-    --text-primary: #2e3440;
-    --text-white: #ffffff;
+    --green: #3cb683;
+    --red: #f66465;
 
+    --bg-primary: #eceff4;
     --bg-error-page: #581c87;
 
-    --link-hover-color: #2563eb;
+    --text-primary: #2e3440;
+    --text-white: #ffffff;
+    --text-highlight: var(--red);
+
+    --border-focus: var(--green);
+
+    --text-highlight-hover: var(--green);
 }

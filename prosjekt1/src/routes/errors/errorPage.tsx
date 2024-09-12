@@ -9,17 +9,15 @@ const ErrorPage = () => {
     return (
         <div className={styles.errorContainer}>
             <img src={gengar} alt="gengar" />
-            <h1 className="text-4xl">Uh-oh, Gengar's Mischief!</h1>
+            <h1>Uh-oh, Gengar's Mischief!</h1>
 
-            <p className={`${styles.sorryText} text-4xl`}>Sorry, an unexpected error has occured.</p>
+            <p className={styles.sorryText}>Sorry, an unexpected error has occured.</p>
 
-            <p className={`${styles.prankText} text-lg`}>
+            <p className={styles.prankText}>
                 Gengar's ghostly pranks seem to have caused a disturbance in the web continuum.
             </p>
 
-            <p className={`${styles.errorText} text-sm`}>
-                {error instanceof Error ? error.message : 'Something went wrong!'}
-            </p>
+            <p className={styles.errorText}>{error instanceof Error ? error.message : 'Something went wrong!'}</p>
 
             <p className={styles.statusText}>
                 <i>{(error as { statusText?: string })?.statusText || 'Mysterious forces at work...'}</i>
