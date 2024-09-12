@@ -1,23 +1,42 @@
+import classNames from 'classnames';
 import styles from './button.module.css';
 
-interface ButtonProps {
+export enum ButtonType {
+    Filled = 'filled',
+    Outline = 'outline',
+}
+
+export enum ButtonSize {
+    Small = 'small',
+    Medium = 'medium',
+    Large = 'large',
+}
+
+export interface ButtonProps {
     text: string;
     onClick: () => void;
     disabled?: boolean;
-    variant?: 'primary' | 'secondary';
-    size?: 'small' | 'medium' | 'large';
+    type?: ButtonType;
+    size?: ButtonSize;
+    customClassName?: string;
+    style?: React.CSSProperties;
 }
 
-const Button = ({ text, onClick, disabled = false, variant = 'primary', size = 'medium' }: ButtonProps) => {
+const Button = ({
+    text,
+    onClick,
+    disabled = false,
+    type = ButtonType.Filled,
+    size = ButtonSize.Medium,
+    customClassName = '',
+    style = {},
+}: ButtonProps) => {
     const getButtonClasses = () => {
-        let baseClasses = styles.btn;
-        baseClasses += ` ${styles[variant]}`;
-        baseClasses += ` ${styles[size]}`;
-        return baseClasses;
+        return classNames(styles.btn, styles[type], styles[size], { [styles.disabled]: disabled }, customClassName);
     };
 
     return (
-        <button className={getButtonClasses()} onClick={onClick} disabled={disabled}>
+        <button className={getButtonClasses()} onClick={onClick} disabled={disabled} style={style}>
             {text}
         </button>
     );
