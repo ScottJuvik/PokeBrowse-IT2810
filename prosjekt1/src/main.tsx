@@ -1,4 +1,4 @@
-import NotFoundPage from '@/routes/errors/NotFoundPage';
+import NotFoundPage from '@/routes/errors/notFoundPage.tsx';
 import Layout from '@components/Layout/layout.tsx';
 import ErrorPage from '@routes/errors/errorPage.tsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
