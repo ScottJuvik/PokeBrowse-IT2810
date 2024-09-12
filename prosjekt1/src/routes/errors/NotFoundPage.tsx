@@ -1,6 +1,6 @@
 import ditto from '@assets/ditto.png';
 import { useNavigate } from 'react-router-dom';
-import styles from './NotFoundPage.module.css';
+import styles from './styles/notFoundPage.module.css';
 
 const NotFoundPage = () => {
     const navigate = useNavigate();
