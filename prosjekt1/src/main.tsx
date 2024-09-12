@@ -1,13 +1,13 @@
 import NotFoundPage from '@/routes/errors/notFoundPage.tsx';
 import Layout from '@components/Layout/layout.tsx';
 import ErrorPage from '@routes/errors/errorPage.tsx';
+import Home from '@routes/home/home.tsx';
+import '@styles/global.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './routes/home/home.tsx';
-import './styles/global.css';
 
 const router = createBrowserRouter([
     {

@@ -15,11 +15,16 @@
     }
 
     a {
-        font-size: 1.1rem;
-        font-weight: 600;
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-semibold);
+        line-height: var(--line-height-xl);
+
+        &:hover {
+            color: var(--text-highlight-hover);
+        }
     }
 
     .active {
-        color: var(--link-hover-color);
+        color: var(--text-highlight-hover);
     }
 }
