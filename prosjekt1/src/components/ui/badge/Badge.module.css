@@ -1,0 +1,104 @@
+@import '@styles/variables.css';
+
+.badge {
+    font-size: var(--font-size-xs);
+    padding: 0.25em 0.5em;
+    border-radius: 6px;
+    font-weight: bold;
+    color: var(--text-white);
+    display: inline-block;
+    text-align: center;
+    width: 40%;
+    max-width: 75px;
+  }
+  /* White text for darker backgrounds */
+  .badge-fire {
+    background-color: var(--color-fire);
+    color: var(--text-white);
+}
+
+.badge-water {
+    background-color: var(--color-water);
+    color: var(--text-white);
+}
+
+.badge-grass {
+    background-color: var(--color-grass);
+    color: var(--text-white);
+}
+
+.badge-fighting {
+    background-color: var(--color-fighting);
+    color: var(--text-white);
+}
+
+.badge-poison {
+    background-color: var(--color-poison);
+    color: var(--text-white);
+}
+
+.badge-flying {
+    background-color: var(--color-flying);
+    color: var(--text-white);
+}
+
+.badge-psychic {
+    background-color: var(--color-psychic);
+    color: var(--text-white);
+}
+
+.badge-ghost {
+    background-color: var(--color-ghost);
+    color: var(--text-white);
+}
+
+.badge-dragon {
+    background-color: var(--color-dragon);
+    color: var(--text-white);
+}
+
+.badge-dark {
+    background-color: var(--color-dark);
+    color: var(--text-white);
+}
+
+ /* black text for lighter backgrounds */
+ .badge-normal {
+    background-color: var(--color-normal);
+    color: var(--text-black);
+}
+
+.badge-electric {
+    background-color: var(--color-electric);
+    color: var(--text-black);
+}
+
+.badge-ice {
+    background-color: var(--color-ice);
+    color: var(--text-black);
+}
+
+.badge-ground {
+    background-color: var(--color-ground);
+    color: var(--text-black);
+}
+
+.badge-bug {
+    background-color: var(--color-bug);
+    color: var(--text-black);
+}
+
+.badge-rock {
+    background-color: var(--color-rock);
+    color: var(--text-black);
+}
+
+.badge-steel {
+    background-color: var(--color-steel);
+    color: var(--text-black);
+}
+
+.badge-fairy {
+    background-color: var(--color-fairy);
+    color: var(--text-black);
+}
