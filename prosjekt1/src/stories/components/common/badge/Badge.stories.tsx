@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react';
-import { Badge, BadgeProps } from '@components/ui/badge/Badge'; // Adjust the path as necessary
+import { Badge, BadgeProps } from '@components/ui/badge/Badge';
 
 export default {
     title: 'Components/Badge',
