@@ -7,7 +7,7 @@ const ErrorPage = () => {
     console.error(error);
 
     return (
-        <div className={styles.errorContainer}>
+        <main className={styles.errorContainer}>
             <img src={gengar} alt="gengar" />
             <h1>Uh-oh, Gengar's Mischief!</h1>
 
@@ -22,7 +22,7 @@ const ErrorPage = () => {
             <p className={styles.statusText}>
                 <i>{(error as { statusText?: string })?.statusText || 'Mysterious forces at work...'}</i>
             </p>
-        </div>
+        </main>
     );
 };
 

@@ -1,15 +1,15 @@
+@import "@styles/variables.css";
+
 .errorContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
-    background-color: var(--bg-not-found);
+    background-color: var(--bg-error-page);
     padding: 1.5rem;
     color: var(--text-white);
     text-align: center;
-
-    background-color: var(--bg-error-page);
 
     img {
         width: 100%;
@@ -25,7 +25,7 @@
 
     .sorryText {
         margin-top: 1rem;
-        font-size: var(--font-size-4xl);
+        font-size: clamp(var(--font-size-base), var(--font-size-lg), var(--font-size-4xl));
         line-height: var(--line-height-4xl);
     }
 

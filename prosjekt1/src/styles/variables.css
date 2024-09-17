@@ -4,19 +4,15 @@
     --blue: #2563eb;
 
     --bg-primary: #eceff4;
-    --bg-error-page: #581c87;
-
-    --text-primary: #2e3440;
-    --text-white: #ffffff;
-    --text-highlight: var(--red);
-
-    --border-focus: var(--green);
     --bg-not-found: #61b4e4;
     --bg-error-page: #581c87;
+
+    --border-focus: var(--green);
 
     /* Text */
     --text-primary: #2e3440;
     --text-white: #e1e4ea;
+    --text-highlight: var(--red);
 
     /* Buttons */
     --btn-primary: #2563eb;
