@@ -13,14 +13,16 @@ const Loader = ({ size = '5rem', text = 'Catching Pokémon...', customImageSrc, 
     const loaderWrapperClass = classNames(styles.loaderWrapper, className);
 
     return (
-        <div data-testid="loader-wrapper" className={loaderWrapperClass}>
+        <div data-testid="loader" aria-busy="true" aria-live="polite" role="status" className={loaderWrapperClass}>
             <img
                 src={customImageSrc || pokeball}
                 alt="Loading icon"
                 style={{ width: size, height: size }}
                 className={styles.pokeball}
             />
-            <p className={styles.loadingText}>{text}</p>
+            <p className={styles.loadingText} aria-label="Loading text">
+                {text}
+            </p>
         </div>
     );
 };

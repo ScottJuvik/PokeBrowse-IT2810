@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Loader > matches the snapshot 1`] = `
+<div
+  aria-busy="true"
+  aria-live="polite"
+  class="_loaderWrapper_f6abc6"
+  data-testid="loader"
+  role="status"
+>
+  <img
+    alt="Loading icon"
+    class="_pokeball_f6abc6"
+    src="/src/assets/pokeball.svg"
+    style="width: 5rem; height: 5rem;"
+  />
+  <p
+    aria-label="Loading text"
+    class="_loadingText_f6abc6"
+  >
+    Catching Pokémon...
+  </p>
+</div>
+`;

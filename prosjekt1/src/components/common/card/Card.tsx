@@ -1,9 +1,10 @@
+import { Badge } from '@/components/ui/badge/Badge';
+import { Favorite, FavoriteFilled } from '@carbon/icons-react';
+import { randomUUID } from 'crypto';
 import { useState } from 'react';
 import styles from './Card.module.css';
-import { Favorite, FavoriteFilled } from '@carbon/icons-react';
-import { Badge } from '@/components/ui/badge/Badge';
 
-interface CardProps {
+export interface CardProps {
     index: number;
     name: string;
     types: string[];
@@ -38,7 +39,7 @@ const Card = ({ index, name, types, imageUrl }: CardProps) => {
             </div>
             <div className={styles.badgeWrapper}>
                 {types.map(type => (
-                    <Badge type={type} />
+                    <Badge key={randomUUID()} type={type} />
                 ))}
             </div>
         </div>

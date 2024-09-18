@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import styles from './SearchBar.module.css';
-import classNames from 'classnames';
 import { ArrowRight, Close } from '@carbon/icons-react';
+import classNames from 'classnames';
+import React from 'react';
+import styles from './SearchBar.module.css';
 
 export enum SearchBarSize {
     Small = 'small',
@@ -10,6 +10,8 @@ export enum SearchBarSize {
 
 export interface SearchBarProps {
     placeholder?: string;
+    searchQuery: string;
+    setSearchQuery: (query: string) => void;
     onSearch: (query: string) => void;
     size?: SearchBarSize;
     customClassName?: string;
@@ -17,18 +19,18 @@ export interface SearchBarProps {
 
 const SearchBar = ({
     placeholder = 'Search for a Pokémon',
+    searchQuery,
+    setSearchQuery,
     onSearch,
     size = SearchBarSize.Large,
     customClassName = '',
 }: SearchBarProps) => {
-    const [searchQuery, setSearchQuery] = useState('');
+    const handleClearInput = () => {
+        setSearchQuery('');
+    };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
-    };
-
-    const handleClearInput = () => {
-        setSearchQuery('');
     };
 
     const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {

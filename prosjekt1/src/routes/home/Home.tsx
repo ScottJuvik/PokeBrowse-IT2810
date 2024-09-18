@@ -1,16 +1,21 @@
-import Loader from '@/components/common/loader/Loader';
-import { ArrowRight } from '@carbon/icons-react';
+import SearchBar from '@/components/common/searchbar/SearchBar';
+import Loader from '@components/common/loader/Loader';
+import { useRandomPokemonId } from '@hooks/useRandomPokemonId';
 import { useEffect, useState } from 'react';
-import styles from './home.module.css';
+import { useNavigate } from 'react-router-dom';
+import styles from './Home.module.css';
 import background_backup_desktop from '/images/may_waterfall_desktop.jpg';
 import background_mobile from '/images/may_waterfall_mobile.jpg';
 import background_desktop from '/videos/may_waterfall.mp4';
-import SearchBar, { SearchBarSize } from '@/components/common/searchbar/SearchBar';
 
 const Home = () => {
     const [isMobile, setIsMobile] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [videoFailed, setVideoFailed] = useState(false);
+    const [pokemon, setPokemon] = useState<string>('');
+    const { refetch, isLoading: isLoadingId } = useRandomPokemonId();
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const checkScreenSize = () => {
@@ -25,10 +30,6 @@ const Home = () => {
         };
     }, []);
 
-    const handleSearch = (query: string) => {
-        console.log('Search query:', query);
-    };
-
     const loadAsset = (element: HTMLVideoElement | HTMLImageElement): Promise<void> => {
         return new Promise((resolve, reject) => {
             element.onload = () => resolve();
@@ -39,7 +40,6 @@ const Home = () => {
         });
     };
 
-    // Load background depending on device
     useEffect(() => {
         const loadBackground = async () => {
             const video = document.getElementById('backgroundVideo') as HTMLVideoElement;
@@ -61,7 +61,25 @@ const Home = () => {
         loadBackground();
     }, [isMobile]);
 
-    if (isLoading) {
+    const handleSearchClick = () => {
+        if (pokemon.trim()) {
+            navigate(`/pokemon/${pokemon}`);
+        }
+    };
+
+    const handleRandomClick = async () => {
+        const { data } = await refetch();
+
+        if (data) {
+            navigate(`/pokemon/${data}`);
+        }
+    };
+
+    const handlePokemonClick = () => {
+        navigate('/pokemon');
+    };
+
+    if (isLoading || isLoadingId) {
         return (
             <div className={styles.homeContainer}>
                 <Loader />
@@ -101,10 +119,20 @@ const Home = () => {
                 </h1>
 
                 <div className={styles.interactives}>
-                    <SearchBar onSearch={handleSearch} size={SearchBarSize.Large} />
+                    <SearchBar onSearch={handleSearchClick} searchQuery={pokemon} setSearchQuery={setPokemon} />
                     <div className={styles.buttonWrapper}>
-                        <button className={styles.random}>Random</button>
-                        <button className={styles.pokemon}>Pokémon</button>
+                        <button
+                            type="button"
+                            name="random"
+                            className={styles.random}
+                            onClick={handleRandomClick}
+                            disabled={isLoadingId}
+                        >
+                            Random
+                        </button>
+                        <button type="button" name="pokemon" className={styles.pokemon} onClick={handlePokemonClick}>
+                            Pokémon
+                        </button>
                     </div>
                 </div>
             </main>
