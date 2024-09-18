@@ -20,11 +20,11 @@
         line-height: var(--line-height-xl);
 
         &:hover {
-            color: var(--text-highlight-hover);
+            color: var(--green);
         }
     }
 
     .active {
-        color: var(--text-highlight-hover);
+        color: var(--green);
     }
 }

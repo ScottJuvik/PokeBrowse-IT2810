@@ -95,7 +95,7 @@
                 transition: background-color 0.15s ease;
 
                 &:hover {
-                    background-color: var(--text-highlight-hover);
+                    background-color: var(--green);
                 }
             }
         }
