@@ -1,0 +1,65 @@
+@import '@styles/variables.css';
+
+.pokemonCard {
+    width: 200px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    padding-top: 1rem;
+
+    &:hover {
+        img {
+            transform: scale(1.2);
+        }
+    }
+
+    button {
+        cursor: pointer;
+        background-color: transparent;
+        outline: none;
+        border: none;
+    }
+}
+
+.pokemonHeart {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 1;
+}
+
+.isFavourite {
+    color: red;
+}
+
+.pokemonImage {
+    width: 80%;
+    height: auto;
+    transition: transform 0.3s ease;
+    user-select: none;
+}
+
+.pokemonDetails {
+    width: 100%;
+    background-color: var(--bg-primary);
+    padding: 0.5rem 1rem;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.pokemonIndex {
+    font-size: 14px;
+    color: #9e9e9e;
+}
+
+.pokemonName {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text-primary);
+}
