@@ -1,4 +1,4 @@
-import Button, { ButtonProps, ButtonSize, ButtonType } from '@components/common/button/Button.tsx';
+import Button, { ButtonProps, ButtonSize, ButtonType } from '@components/common/button/Button';
 import { Meta, StoryFn } from '@storybook/react';
 import styles from './Button.module.css';
 
