@@ -1,6 +1,6 @@
-import Button, { ButtonProps, ButtonSize, ButtonType } from '@components/common/button/button.tsx';
+import Button, { ButtonProps, ButtonSize, ButtonType } from '@/components/common/button/Button';
 import { Meta, StoryFn } from '@storybook/react';
-import styles from './button.module.css';
+import styles from './Button.module.css';
 
 export default {
     title: 'Components/Button',
