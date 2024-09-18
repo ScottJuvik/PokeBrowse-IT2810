@@ -23,7 +23,19 @@ const Card = ({ index, name, imageUrl }: CardProps) => {
                 aria-label="Favourite Button"
                 onClick={toggleFavourite}
             >
-                {isFavourite ? <FavoriteFilled size={24} data-testid="carbon-icon-favorite-filled" /> : <Favorite size={24} data-testid="carbon-icon-favorite" />}
+                {
+                
+            isFavourite 
+                ? <FavoriteFilled 
+                    size={24} 
+                    data-testid="carbon-icon-favorite-filled" 
+                  /> 
+                : <Favorite 
+                    size={24} 
+                    data-testid="carbon-icon-favorite" 
+                  />
+                
+            }
             </button>
             <img src={imageUrl} alt={name} className={styles.pokemonImage} />
             <div className={styles.pokemonDetails}>
