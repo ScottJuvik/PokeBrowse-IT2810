@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Button, { ButtonSize, ButtonType } from '@components/common/button/Button';
+import Button, { ButtonSize, ButtonType } from '@/components/common/button/Button';
 import styles from '@components/common/button/button.module.css';
 import { vi } from 'vitest';
 
