@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Button from '@/components/common/button/Button';
+import Button, { ButtonSize, ButtonType } from '@components/common/button/Button';
 import styles from '@components/common/button/button.module.css';
 import { vi } from 'vitest';
 
@@ -19,10 +19,10 @@ describe('Button Component', () => {
     });
 
     test('applies primary variant class', () => {
-        render(<Button text="Primary Button" onClick={() => {}} variant="primary" />);
-        const buttonElement = screen.getByText(/Primary Button/i);
+        render(<Button text="Filled Button" onClick={() => {}} type={ButtonType.Filled} />);
+        const buttonElement = screen.getByText(/Filled Button/i);
         expect(buttonElement).toHaveClass(styles.btn);
-        expect(buttonElement).toHaveClass(styles.primary);
+        expect(buttonElement).toHaveClass(styles.filled);
     });
 
     test('is disabled when the disabled prop is passed', () => {
@@ -32,7 +32,7 @@ describe('Button Component', () => {
     });
 
     test('applies the correct size class', () => {
-        render(<Button text="Large Button" onClick={() => {}} size="large" />);
+        render(<Button text="Large Button" onClick={() => {}} size={ButtonSize.Large} />);
         const buttonElement = screen.getByText(/Large Button/i);
         expect(buttonElement).toHaveClass(styles.large);
     });
