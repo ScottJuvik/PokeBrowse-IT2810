@@ -7,7 +7,7 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    z-index: 2;
+    z-index: 100;
 }
 
 /* Dropdown menu styling */
@@ -20,7 +20,7 @@
     padding: 10;
     margin: 10;
     transition: top 0.3s ease-in-out;
-    z-index: 1;
+    z-index: 10;
 }
 
 .open {
