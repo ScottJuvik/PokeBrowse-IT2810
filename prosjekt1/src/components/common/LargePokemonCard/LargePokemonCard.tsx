@@ -74,9 +74,7 @@ const LargePokemonCard = ({
                     <ArrowLeft size={32} />
                 </button>
 
-                <h1 className={styles.pokemonName}>
-                    {name}
-                </h1>
+                <h1 className={styles.pokemonName}>{name}</h1>
 
                 <button
                     type="button"
@@ -91,11 +89,9 @@ const LargePokemonCard = ({
                     )}
                 </button>
             </div>
-            
+
             <div>
-                <h2 className={styles.pokemonID}>
-                    #{String(index).padStart(4, '0')}
-                </h2>
+                <h2 className={styles.pokemonID}>#{String(index).padStart(4, '0')}</h2>
             </div>
 
             <div className={styles.pokemonInfo}>
@@ -116,7 +112,7 @@ const LargePokemonCard = ({
 
                 <div className={styles.navigationWrapper}>
                     <button onClick={prevPokemon} className={styles.prevButton}>
-                        <ChevronLeft size={30}/> 
+                        <ChevronLeft size={30} />
                         <span>Previous Pokémon</span>
                     </button>
 
@@ -128,7 +124,7 @@ const LargePokemonCard = ({
 
                     <button onClick={nextPokemon} className={styles.nextButton}>
                         <span>Next Pokémon</span>
-                        <ChevronRight size={30}/>
+                        <ChevronRight size={30} />
                     </button>
                 </div>
             </div>

@@ -5,9 +5,24 @@ import Card from '@/components/common/card/Card'; // Adjust the import path base
 const fetchAllCards = async () => {
     // Fetch data from an API or use a static JSON file
     return [
-        { index: 1, name: 'Bulbasaur', types: ['grass', 'poison'], imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png' },
-        { index: 4, name: 'Charmander', types: ['fire'], imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png' },
-        { index: 150, name: 'Mewtwo', types: ['psychic'], imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png' },
+        {
+            index: 1,
+            name: 'Bulbasaur',
+            types: ['grass', 'poison'],
+            imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
+        },
+        {
+            index: 4,
+            name: 'Charmander',
+            types: ['fire'],
+            imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png',
+        },
+        {
+            index: 150,
+            name: 'Mewtwo',
+            types: ['psychic'],
+            imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png',
+        },
         // Add more cards as needed
     ];
 };
@@ -37,7 +52,7 @@ const Favorites = () => {
             <h1>Favorite Cards</h1>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
                 {favoriteCards.length > 0 ? (
-                    favoriteCards.map((card) => (
+                    favoriteCards.map(card => (
                         <Card
                             key={card.index}
                             index={card.index}

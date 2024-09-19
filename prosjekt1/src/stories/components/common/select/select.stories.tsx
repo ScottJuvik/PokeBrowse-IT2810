@@ -14,16 +14,10 @@ const sampleOptions: SelectOption[] = [
 ];
 
 // Template for the Select component
-const Template: StoryFn<SelectProps> = (args) => {
+const Template: StoryFn<SelectProps> = args => {
     const [selectedOption, setSelectedOption] = useState<SelectOption>(args.selected);
 
-    return (
-        <Select
-            {...args}
-            selected={selectedOption}
-            setSelected={(option) => setSelectedOption(option)}
-        />
-    );
+    return <Select {...args} selected={selectedOption} setSelected={option => setSelectedOption(option)} />;
 };
 
 // Default story for the Select component
@@ -36,11 +30,11 @@ Default.args = {
 // Story for the Select component with filter options
 export const SelectedOption = Template.bind({});
 SelectedOption.args = {
-    options:[ 
-                { value: 'asc', label: 'Number Ascending' },
-                { value: 'desc', label: 'Number Descending' },
-                { value: 'az', label: 'A-Z' },
-                { value: 'za', label: 'Z-A' },
-            ],
+    options: [
+        { value: 'asc', label: 'Number Ascending' },
+        { value: 'desc', label: 'Number Descending' },
+        { value: 'az', label: 'A-Z' },
+        { value: 'za', label: 'Z-A' },
+    ],
     selected: sampleOptions[1], // Default selected option
 };

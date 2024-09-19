@@ -4,7 +4,7 @@ import { usePokemon } from '@/hooks/usePokemon';
 import ErrorPage from '@/routes/errors/ErrorPage';
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from './PokemonViewPage.module.css';
-import { MinimalPokemon, Stat} from '@/interfaces/pokemon';
+import { MinimalPokemon, Stat } from '@/interfaces/pokemon';
 import { formatPokemonName } from '@/utils/text';
 
 const PokemonViewPage = () => {
@@ -15,7 +15,11 @@ const PokemonViewPage = () => {
         return <div>Error: Pokémon ID or Name is undefined</div>;
     }
 
-    const { data: pokemon, isLoading, error } = usePokemon(nameOrId) as {
+    const {
+        data: pokemon,
+        isLoading,
+        error,
+    } = usePokemon(nameOrId) as {
         data: MinimalPokemon | undefined;
         isLoading: boolean;
         error: Error | null;
@@ -41,7 +45,6 @@ const PokemonViewPage = () => {
     const specialAttack = stats.find((stat: Stat) => stat.name === 'special-attack')?.value || 0;
     const specialDefense = stats.find((stat: Stat) => stat.name === 'special-defense')?.value || 0;
     const speed = stats.find((stat: Stat) => stat.name === 'speed')?.value || 0;
-
 
     const nextPokemon = () => {
         const nextId = Number(pokemon.id) + 1;

@@ -17,7 +17,7 @@
     --text-white: #e7eaf0;
     --text-placeholder: #cccccc;
     --text-black: #000000;
-    --text-highlight: var(--red);   
+    --text-highlight: var(--red);
 
     /* Buttons */
     --btn-primary: #2563eb;

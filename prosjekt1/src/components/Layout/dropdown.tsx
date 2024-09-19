@@ -1,6 +1,6 @@
+import { CloseLarge, Menu } from '@carbon/icons-react';
+import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { useState } from "react";
-import { Menu, CloseLarge } from '@carbon/icons-react';
 import styles from './styles/dropdown.module.css';
 
 const Dropdown = () => {
@@ -20,12 +20,12 @@ const Dropdown = () => {
         }
     };
 
-    return(
+    return (
         <nav className={styles.navbar}>
             <div className={styles.icon}>
                 {isOpen ? (
-                    <CloseLarge size="40" onClick={toggleDropdown} color='white'/>
-                    ) : (
+                    <CloseLarge size="40" onClick={toggleDropdown} color="white" />
+                ) : (
                     <Menu size="40" onClick={toggleDropdown} color={getMenuColor()} />
                 )}
             </div>
@@ -37,9 +37,9 @@ const Dropdown = () => {
                     </NavLink>
                 </li>
                 <li>
-                <NavLink to="/project1/pokemon" className={({ isActive }) => (isActive ? styles.active : '')}>
-                    Pokémon
-                </NavLink>
+                    <NavLink to="/project1/pokemon" className={({ isActive }) => (isActive ? styles.active : '')}>
+                        Pokémon
+                    </NavLink>
                 </li>
                 <li>
                     <NavLink to="/project1/favorites" className={({ isActive }) => (isActive ? styles.active : '')}>
@@ -48,7 +48,7 @@ const Dropdown = () => {
                 </li>
             </ul>
         </nav>
-    )
-}
+    );
+};
 
 export default Dropdown;

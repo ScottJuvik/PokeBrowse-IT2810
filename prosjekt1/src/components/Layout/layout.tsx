@@ -28,17 +28,16 @@ const Layout = () => {
                     <Outlet />
                 </div>
             </div>
-        )
+        );
     }
 
     return (
-    <div className={styles.layout}>
-        <Navbar />
-        <div className={styles.content}>
-            <Outlet />
+        <div className={styles.layout}>
+            <Navbar />
+            <div className={styles.content}>
+                <Outlet />
+            </div>
         </div>
-    </div>
-);
-
-}
+    );
+};
 export default Layout;
