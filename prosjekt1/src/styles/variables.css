@@ -12,8 +12,10 @@
     /* Text */
     --text-primary: #2e3440;
     --text-white: #e1e4ea;
+    --text-placeholder:#cccccc;
     --text-black: #000000;
     --text-highlight: var(--red);
+
 
     /* Buttons */
     --btn-primary: #2563eb;
