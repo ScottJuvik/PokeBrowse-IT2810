@@ -63,3 +63,11 @@
     font-weight: bold;
     color: var(--text-primary);
 }
+.badgeWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
