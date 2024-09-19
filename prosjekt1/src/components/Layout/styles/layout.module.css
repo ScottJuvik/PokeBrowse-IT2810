@@ -14,3 +14,17 @@
         overflow-y: auto;
     }
 }
+
+.layoutMobile {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+
+    .contentMobile {
+        flex-grow: 1;
+        overflow-y: auto;
+        height: 100%;
+        width: 100%;
+    }
+}
