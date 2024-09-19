@@ -1,9 +1,9 @@
-import { ArrowRight } from '@carbon/icons-react';
 import { useEffect, useState } from 'react';
 import styles from './home.module.css';
 import background_backup_desktop from '/images/may_waterfall_desktop.jpg';
 import background_mobile from '/images/may_waterfall_mobile.jpg';
 import background_desktop from '/videos/may_waterfall.mp4';
+import SearchBar, { SearchBarSize } from '@/components/common/searchbar/SearchBar';
 
 const Home = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -21,6 +21,10 @@ const Home = () => {
             window.removeEventListener('resize', checkScreenSize);
         };
     }, []);
+
+    const handleSearch = (query: string) => {
+        console.log('Search query:', query);
+    };
 
     return (
         <div className={styles.homeContainer}>
@@ -48,12 +52,7 @@ const Home = () => {
                 </h1>
 
                 <div className={styles.interactives}>
-                    <div className={styles.searchWrapper}>
-                        <input type="text" placeholder="Search for a Pokémon" className={styles.searchInput} />
-                        <button className={styles.searchButton}>
-                            <ArrowRight size={isMobile ? 16 : 24} />
-                        </button>
-                    </div>
+                    <SearchBar onSearch={handleSearch} size={SearchBarSize.Large} />
                     <div className={styles.buttonWrapper}>
                         <button className={styles.random}>Random</button>
                         <button className={styles.pokemon}>Pokémon</button>
