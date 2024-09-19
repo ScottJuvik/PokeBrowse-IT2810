@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import styles from './Card.module.css';
 import { Favorite, FavoriteFilled } from '@carbon/icons-react';
+import { Badge } from '@/components/ui/badge/Badge';
 
 interface CardProps {
     index: number;
     name: string;
+    types: string[];
     imageUrl: string;
 }
 
-const Card = ({ index, name, imageUrl }: CardProps) => {
+const Card = ({ index, name, types, imageUrl }: CardProps) => {
     const [isFavourite, setIsFavourite] = useState(false);
 
     const toggleFavourite = () => {
@@ -23,24 +25,21 @@ const Card = ({ index, name, imageUrl }: CardProps) => {
                 aria-label="Favourite Button"
                 onClick={toggleFavourite}
             >
-                {
-                
-            isFavourite 
-                ? <FavoriteFilled 
-                    size={24} 
-                    data-testid="carbon-icon-favorite-filled" 
-                  /> 
-                : <Favorite 
-                    size={24} 
-                    data-testid="carbon-icon-favorite" 
-                  />
-                
-            }
+                {isFavourite ? (
+                    <FavoriteFilled size={24} data-testid="carbon-icon-favorite-filled" />
+                ) : (
+                    <Favorite size={24} data-testid="carbon-icon-favorite" />
+                )}
             </button>
             <img src={imageUrl} alt={name} className={styles.pokemonImage} />
             <div className={styles.pokemonDetails}>
                 <p className={styles.pokemonIndex}>#{index}</p>
                 <p className={styles.pokemonName}>{name}</p>
+            </div>
+            <div className={styles.badgeWrapper}>
+                {types.map(type => (
+                    <Badge type={type} />
+                ))}
             </div>
         </div>
     );

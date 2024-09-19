@@ -1,6 +1,7 @@
 @import '@styles/variables.css';
 
-.badge {
+  
+  .badge {
     font-size: var(--font-size-xs);
     padding: 0.25em 0.5em;
     border-radius: 6px;
@@ -8,9 +9,9 @@
     color: var(--text-white);
     display: inline-block;
     text-align: center;
-    width: 40%;
-    max-width: 75px;
+    white-space: nowrap;
   }
+  
   /* White text for darker backgrounds */
   .badge-fire {
     background-color: var(--color-fire);
