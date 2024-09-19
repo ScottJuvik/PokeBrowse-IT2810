@@ -1,14 +1,14 @@
 import gengar from '@assets/gengar.png';
 import { useRouteError } from 'react-router-dom';
-import styles from './styles/errorPage.module.css';
+import styles from './styles/ErrorPage.module.css';
 
 const ErrorPage = () => {
     const error = useRouteError();
     console.error(error);
 
     return (
-        <main className={styles.errorContainer}>
-            <img src={gengar} alt="gengar" />
+        <main className={styles.errorContainer} data-testid="errorPage-wrapper">
+            <img src={gengar} alt="Error Image" aria-label="Error image" />
             <h1>Uh-oh, Gengar's Mischief!</h1>
 
             <p className={styles.sorryText}>Sorry, an unexpected error has occured.</p>

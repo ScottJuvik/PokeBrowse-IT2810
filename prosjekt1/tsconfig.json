@@ -5,7 +5,7 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "types": ["node", "jest", "vitest/globals"],
+    "types": ["vitest/globals"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
@@ -15,7 +15,8 @@
       "@interfaces/*": ["src/interfaces/*"],
       "@routes/*": ["src/routes/*"],
       "@styles/*": ["src/styles/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@mocks/*": ["src/mocks/*"]
     }
   }
 }

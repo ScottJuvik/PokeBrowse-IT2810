@@ -1,48 +1,52 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import Card from '@/components/common/card/Card';
+import Card, { CardProps } from '@components/common/card/Card';
+import { fireEvent, render, screen } from '@testing-library/react';
 
-describe('Card Component - Props Validation', () => {
-    const cardProps = {
-        index: 1,
-        name: 'Bulbasaur',
-        imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
-    };
+const cardProps: CardProps = {
+    imageUrl: 'https://example.com/image.png',
+    index: 1,
+    name: 'Bulbasaur',
+    types: ['grass', 'poison'],
+};
 
-    const renderComponent = () => {
-        render(<Card {...cardProps} />);
+const renderComponent = (props: CardProps) => {
+    const utils = render(<Card {...props} />);
+    const image = utils.getByAltText('Bulbasaur');
+    const pokedexNumber = utils.getByText(/#1/i);
+    const name = utils.getByText(/bulbasaur/i);
+    const button = utils.getByRole('button');
+    return { ...utils, image, pokedexNumber, name, button };
+};
 
-        return {
-            image: screen.getByRole('img'),
-            pokedexNumber: screen.getByText(/#/i),
-            name: screen.getByText(/Bulbasaur/i),
-            button: screen.getByRole('button'),
-        };
-    };
+test('renders the card with default props', () => {
+    const { image, pokedexNumber, name } = renderComponent(cardProps);
 
-    test('renders the card with default props', () => {
-        const { image, pokedexNumber, name } = renderComponent();
+    expect(pokedexNumber).toHaveTextContent(/#1/i);
+    expect(name).toHaveTextContent(/bulbasaur/i);
+    expect(image).toHaveAttribute('src', cardProps.imageUrl);
+});
 
-        expect(pokedexNumber).toHaveTextContent(/#1/i);
-        expect(name).toHaveTextContent(/bulbasaur/i);
+it('should toggle favourite when the button is clicked', () => {
+    const { button } = renderComponent(cardProps);
 
-        expect(image).toHaveAttribute('src', cardProps.imageUrl);
-    });
+    expect(screen.getByTestId('carbon-icon-favorite')).toBeInTheDocument();
+    expect(screen.queryByTestId('carbon-icon-favorite-filled')).not.toBeInTheDocument();
 
-    it('should toggle favourite when the button is clicked', () => {
-        const { button } = renderComponent();
+    fireEvent.click(button);
 
-        expect(screen.getByTestId('carbon-icon-favorite')).toBeInTheDocument();
-        expect(screen.queryByTestId('carbon-icon-favorite-filled')).not.toBeInTheDocument();
+    expect(screen.getByTestId('carbon-icon-favorite-filled')).toBeInTheDocument();
+    expect(screen.queryByTestId('carbon-icon-favorite')).not.toBeInTheDocument();
 
-        fireEvent.click(button);
+    fireEvent.click(button);
 
-        expect(screen.getByTestId('carbon-icon-favorite-filled')).toBeInTheDocument();
-        expect(screen.queryByTestId('carbon-icon-favorite')).not.toBeInTheDocument();
+    expect(screen.getByTestId('carbon-icon-favorite')).toBeInTheDocument();
+    expect(screen.queryByTestId('carbon-icon-favorite-filled')).not.toBeInTheDocument();
+});
 
-        fireEvent.click(button);
+test('renders the card with types', () => {
+    renderComponent(cardProps);
 
-        expect(screen.getByTestId('carbon-icon-favorite')).toBeInTheDocument();
-        expect(screen.queryByTestId('carbon-icon-favorite-filled')).not.toBeInTheDocument();
+    cardProps.types.forEach(type => {
+        const regex = new RegExp(type, 'i');
+        expect(screen.getByText(regex)).toBeInTheDocument();
     });
 });
