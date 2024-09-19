@@ -1,21 +1,20 @@
 import { Badge } from '@/components/ui/badge/Badge';
+import useFavorites from '@/hooks/useFavorites';
 import { usePokemon } from '@/hooks/usePokemon';
 import { MinimalPokemon } from '@/interfaces/pokemon';
 import { formatPokemonName } from '@/utils/text';
 import whosThatPokemon from '@assets/who.jpg';
-import { memo, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { memo } from 'react';
 import FavoriteButton from './FavoriteButton';
 import SkeletonLoader from './SkeletonLoader';
 import styles from './styles/Card.module.css';
 
 interface CardProps {
     nameOrId: string | number;
-    onToggleFavorite?: () => void;
+    onFavoriteToggle?: (isFavorite: boolean) => void;
 }
 
-const Card = ({ nameOrId, onToggleFavorite }: CardProps) => {
-    const [isFavourite, setIsFavourite] = useState(false);
+const Card = ({ nameOrId, onFavoriteToggle }: CardProps) => {
     const {
         data: pokemon,
         isLoading,
@@ -26,16 +25,15 @@ const Card = ({ nameOrId, onToggleFavorite }: CardProps) => {
         error: Error | null;
     };
 
-    const navigate = useNavigate();
+    const { favorites, toggleFavorite } = useFavorites();
+    const isFavorite = pokemon ? favorites.includes(pokemon.id) : false;
 
-    useEffect(() => {
-        if (pokemon) {
-            const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-            if (storedFavorites.includes(pokemon.id)) {
-                setIsFavourite(true);
-            }
+    const handleToggleFavorite = () => {
+        toggleFavorite(pokemon!.id);
+        if (onFavoriteToggle) {
+            onFavoriteToggle(!isFavorite);
         }
-    }, [pokemon]);
+    };
 
     if (isLoading) {
         return <SkeletonLoader />;
@@ -46,41 +44,9 @@ const Card = ({ nameOrId, onToggleFavorite }: CardProps) => {
         return <p>Error loading Pokémon data</p>;
     }
 
-    const handleCardClick = () => {
-        navigate(`/project1/pokemon/${pokemon.name}`);
-    };
-
-    const toggleFavourite = () => {
-        setIsFavourite(!isFavourite);
-
-        const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-
-        let updatedFavorites;
-        if (storedFavorites.includes(pokemon.id)) {
-            updatedFavorites = storedFavorites.filter((favIndex: number) => favIndex !== pokemon.id);
-        } else {
-            updatedFavorites = [...storedFavorites, pokemon.id];
-        }
-
-        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-
-        if (onToggleFavorite) {
-            onToggleFavorite();
-        }
-    };
-
-    if (isLoading) {
-        return <SkeletonLoader />;
-    }
-
-    if (error) {
-        console.error('Error loading Pokémon data:', error);
-        return <p>Error loading Pokémon data</p>;
-    }
-
     return (
-        <div className={styles.pokemonCard} onClick={handleCardClick}>
-            <FavoriteButton isFavorite={isFavourite} onClick={toggleFavourite} />
+        <div className={styles.pokemonCard}>
+            <FavoriteButton isFavorite={isFavorite} onClick={handleToggleFavorite} />
             {pokemon && (
                 <>
                     <img
