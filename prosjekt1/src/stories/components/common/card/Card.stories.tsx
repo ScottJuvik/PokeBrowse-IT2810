@@ -20,28 +20,28 @@ export default {
     },
 } as Meta;
 
-const Template: StoryFn = args => <Card index={0} name={''} imageUrl={''} {...args} />;
+const Template: StoryFn = args => <Card types={[]} index={0} name={''} imageUrl={''} {...args} />;
 
-// Default Pokémon Card Story
 export const Default = Template.bind({});
 Default.args = {
     index: 1,
     name: 'Bulbasaur',
+    types: ['grass', 'poison'],
     imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
 };
 
-// Another Pokémon Card (Charmander)
 export const Charmander = Template.bind({});
 Charmander.args = {
     index: 4,
     name: 'Charmander',
+    types: ['fire'],
     imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png',
 };
 
-// Large Pokémon Card (Mewtwo)
 export const Mewtwo = Template.bind({});
 Mewtwo.args = {
     index: 150,
     name: 'Mewtwo',
+    types: ['dragon'],
     imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png',
 };
