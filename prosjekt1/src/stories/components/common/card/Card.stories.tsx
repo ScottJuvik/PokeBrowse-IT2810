@@ -22,7 +22,6 @@ export default {
 
 const Template: StoryFn = args => <Card types={[]} index={0} name={''} imageUrl={''} {...args} />;
 
-// Default Pokémon Card Story
 export const Default = Template.bind({});
 Default.args = {
     index: 1,
@@ -31,7 +30,6 @@ Default.args = {
     imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
 };
 
-// Another Pokémon Card (Charmander)
 export const Charmander = Template.bind({});
 Charmander.args = {
     index: 4,
@@ -40,7 +38,6 @@ Charmander.args = {
     imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png',
 };
 
-// Large Pokémon Card (Mewtwo)
 export const Mewtwo = Template.bind({});
 Mewtwo.args = {
     index: 150,
