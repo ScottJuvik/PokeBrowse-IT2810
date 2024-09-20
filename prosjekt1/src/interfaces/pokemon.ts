@@ -13,6 +13,18 @@ export interface Pokemon {
             name: string;
         };
     }[];
+
+    stats: {
+        base_stat: number,
+        stat: {
+          name: string,
+        }
+      }[];
+}
+
+export interface Stat {
+    name: string,
+    value: number,
 }
 
 export interface PokemonListResponse {
@@ -37,4 +49,8 @@ export interface MinimalPokemon {
     name: string;
     sprite: string;
     types: string[];
+    stats: {
+        name: string;
+        value: number;
+    }[];
 }

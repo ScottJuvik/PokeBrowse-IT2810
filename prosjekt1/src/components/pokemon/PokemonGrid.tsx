@@ -10,7 +10,7 @@ const PokemonGrid = ({ pokemons }: PokemonGridProps) => {
     return (
         <section className={styles.gridSection}>
             {pokemons.map(pokemon => (
-                <Card key={pokemon.name} idOrName={pokemon.name} />
+                <Card key={pokemon.name} nameOrId={pokemon.name} />
             ))}
         </section>
     );

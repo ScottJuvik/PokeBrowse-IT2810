@@ -2,6 +2,7 @@ import { Badge } from '@/components/ui/badge/Badge';
 import { usePokemon } from '@/hooks/usePokemon';
 import { MinimalPokemon } from '@/interfaces/pokemon';
 import { formatPokemonName } from '@/utils/text';
+import { useNavigate } from 'react-router-dom';
 import whosThatPokemon from '@assets/who.jpg';
 import { memo, useState } from 'react';
 import FavoriteButton from './FavoriteButton';
@@ -9,20 +10,26 @@ import SkeletonLoader from './SkeletonLoader';
 import styles from './styles/Card.module.css';
 
 export interface CardProps {
-    idOrName: string | number;
+    nameOrId: string | number;
 }
 
-const Card = ({ idOrName }: CardProps) => {
+const Card = ({ nameOrId }: CardProps) => {
     const [isFavourite, setIsFavourite] = useState(false);
     const {
         data: pokemon,
         isLoading,
         error,
-    } = usePokemon(idOrName) as {
+    } = usePokemon(nameOrId) as {
         data: MinimalPokemon | undefined;
         isLoading: boolean;
         error: Error | null;
     };
+
+    const navigate = useNavigate();
+
+    const handleCardClick = () => {
+        navigate(`/project1/pokemon/${nameOrId}`);
+    }
 
     const toggleFavourite = () => {
         setIsFavourite(!isFavourite);
@@ -38,7 +45,7 @@ const Card = ({ idOrName }: CardProps) => {
     }
 
     return (
-        <div className={styles.pokemonCard}>
+        <div className={styles.pokemonCard} onClick={handleCardClick}>
             <FavoriteButton isFavorite={isFavourite} onClick={toggleFavourite} />
             {pokemon && (
                 <>

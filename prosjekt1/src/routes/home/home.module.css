@@ -1,0 +1,134 @@
+.homeContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.content {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 1;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+.title {
+    color: var(--text-white);
+    user-select: none;
+    margin-top: 0;
+    font-size: var(--font-size-9xl);
+    line-height: var(--line-height-1);
+    font-weight: var(--font-weight-bold);
+}
+
+.title span {
+    color: var(--text-highlight);
+}
+
+.interactives {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    gap: 1.25rem;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.buttonWrapper button {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-xl);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition-property: color, background-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.buttonWrapper .random {
+    color: var(--red);
+    border: 2px solid var(--red);
+}
+
+.buttonWrapper .random:hover {
+    color: var(--text-white);
+    background-color: var(--red);
+}
+
+.buttonWrapper .pokemon {
+    color: var(--green);
+    border: 2px solid var(--green);
+}
+
+.buttonWrapper .pokemon:hover {
+    color: var(--text-white);
+    background-color: var(--green);
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 0 1rem;
+        gap: 1rem;
+    }
+
+    .title {
+        font-size: var(--font-size-6xl);
+        line-height: var(--line-height-1);
+        font-weight: var(--font-weight-bold);
+    }
+
+    .interactives {
+        gap: 1rem;
+    }
+
+    .searchWrapper {
+        width: 80%;
+        max-width: 100%;
+    }
+
+    .searchInput {
+        font-size: var(--font-size-lg);
+        line-height: var(--line-height-lg);
+        padding: 0.75rem 3rem 0.75rem 1rem;
+    }
+
+    .searchButton {
+        padding: 0.5rem 1rem;
+        font-size: var(--font-size-lg);
+        right: 5px;
+    }
+
+    .buttonWrapper button {
+        font-size: var(--font-size-lg);
+        padding: 0.5rem 1rem;
+    }
+}

@@ -55,6 +55,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 .badgeWrapper {
     display: flex;
     justify-content: start;

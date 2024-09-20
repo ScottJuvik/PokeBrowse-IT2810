@@ -5,7 +5,7 @@ const Navbar = () => (
     <nav className={styles.navbar}>
         <ul>
             <li>
-                <NavLink to="/project1" className={({ isActive }) => (isActive ? styles.active : '')}>
+                <NavLink to="/project1" end className={({ isActive }) => (isActive ? styles.active : '')}>
                     Home
                 </NavLink>
             </li>
