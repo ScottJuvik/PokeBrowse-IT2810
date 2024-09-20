@@ -7,7 +7,7 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    z-index: 2;
+    z-index: 100;
 }
 
 /* Dropdown menu styling */
@@ -18,11 +18,11 @@
     left: 0;
     top: -200px;
     padding: 10;
-    margin: 10;     
+    margin: 10;
     transition: top 0.3s ease-in-out;
-    z-index: 1;
-  }
-      
+    z-index: 10;
+}
+
 .open {
     top: 0;
     display: flex;
@@ -31,7 +31,7 @@
 }
 
 .dropdown li {
-    color: var(--text-white); 
+    color: var(--text-white);
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
     padding: 10px;

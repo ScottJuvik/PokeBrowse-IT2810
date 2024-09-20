@@ -8,7 +8,7 @@ exports[`ErrorPage > matches the snapshot 1`] = `
   <img
     alt="Error Image"
     aria-label="Error image"
-    src="/src/assets/gengar.png"
+    src="/project1/src/assets/gengar.png"
   />
   <h1>
     Uh-oh, Gengar's Mischief!

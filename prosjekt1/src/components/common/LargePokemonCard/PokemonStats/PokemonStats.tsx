@@ -1,4 +1,3 @@
-// components/ui/stats/PokemonStats.tsx
 import styles from './PokemonStats.module.css';
 
 interface PokemonStatsProps {

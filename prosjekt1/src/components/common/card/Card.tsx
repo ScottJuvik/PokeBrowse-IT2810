@@ -1,20 +1,21 @@
 import { Badge } from '@/components/ui/badge/Badge';
+import useFavorites from '@/hooks/useFavorites';
 import { usePokemon } from '@/hooks/usePokemon';
 import { MinimalPokemon } from '@/interfaces/pokemon';
 import { formatPokemonName } from '@/utils/text';
-import { useNavigate } from 'react-router-dom';
 import whosThatPokemon from '@assets/who.jpg';
-import { memo, useState } from 'react';
+import { memo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import FavoriteButton from './FavoriteButton';
 import SkeletonLoader from './SkeletonLoader';
 import styles from './styles/Card.module.css';
 
-export interface CardProps {
+interface CardProps {
     nameOrId: string | number;
+    onFavoriteToggle?: (isFavorite: boolean) => void;
 }
 
-const Card = ({ nameOrId }: CardProps) => {
-    const [isFavourite, setIsFavourite] = useState(false);
+const Card = ({ nameOrId, onFavoriteToggle }: CardProps) => {
     const {
         data: pokemon,
         isLoading,
@@ -25,28 +26,34 @@ const Card = ({ nameOrId }: CardProps) => {
         error: Error | null;
     };
 
+    const { favorites, toggleFavorite } = useFavorites();
+    const isFavorite = pokemon ? favorites.includes(pokemon.id) : false;
+
+    const handleToggleFavorite = () => {
+        toggleFavorite(pokemon!.id);
+        if (onFavoriteToggle) {
+            onFavoriteToggle(!isFavorite);
+        }
+    };
+
     const navigate = useNavigate();
 
     const handleCardClick = () => {
-        navigate(`/project1/pokemon/${nameOrId}`);
-    }
-
-    const toggleFavourite = () => {
-        setIsFavourite(!isFavourite);
+        navigate(`${pokemon?.id}`);
     };
 
     if (isLoading) {
         return <SkeletonLoader />;
     }
 
-    if (error) {
+    if (error || !pokemon) {
         console.error('Error loading Pokémon data:', error);
         return <p>Error loading Pokémon data</p>;
     }
 
     return (
         <div className={styles.pokemonCard} onClick={handleCardClick}>
-            <FavoriteButton isFavorite={isFavourite} onClick={toggleFavourite} />
+            <FavoriteButton isFavorite={isFavorite} onClick={handleToggleFavorite} />
             {pokemon && (
                 <>
                     <img

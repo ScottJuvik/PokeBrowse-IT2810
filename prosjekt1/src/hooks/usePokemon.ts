@@ -31,7 +31,7 @@ const fetchPokemon = async (nameOrId: string | number) => {
         types: data.types.map(typeObj => typeObj.type.name),
         stats: data.stats.map(statObj => ({
             name: statObj.stat.name,
-            value: statObj.base_stat
+            value: statObj.base_stat,
         })),
     };
 

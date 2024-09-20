@@ -8,9 +8,8 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     max-width: 600px;
     position: relative;
-    transform-origin: top center; 
+    transform-origin: top center;
 }
-
 
 .pokemonHeader {
     display: flex;
@@ -33,7 +32,7 @@
 
 .returnButton {
     position: absolute;
-    left: 0; 
+    left: 0;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -59,8 +58,8 @@
     cursor: pointer;
 }
 
-.pokemonHeart:hover{
-    color: rgba(255, 0, 0,0.8);
+.pokemonHeart:hover {
+    color: rgba(255, 0, 0, 0.8);
 }
 
 .isFavourite {
@@ -68,7 +67,7 @@
     transition: color 0.3s ease;
 }
 
-.isFavourite:hover{
+.isFavourite:hover {
     color: red;
 }
 
@@ -81,7 +80,6 @@
 .pokemonImage {
     width: 150px;
 }
-
 
 .pokemonInfo {
     display: flex;
@@ -108,7 +106,8 @@
     position: relative;
 }
 
-.prevButton, .nextButton {
+.prevButton,
+.nextButton {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -126,16 +125,17 @@
     text-align: center;
 }
 
-.prevButton:hover, .nextButton:hover {
+.prevButton:hover,
+.nextButton:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.prevButton span, .nextButton span {
-    margin: 0; 
+.prevButton span,
+.nextButton span {
+    margin: 0;
     color: var(--text-label);
-    text-align: center; 
+    text-align: center;
 }
-
 
 @media screen and (max-width: 768px) {
     .largePokemonCard {
@@ -144,15 +144,12 @@
 
     .navigationWrapper {
         width: 150%;
-        display: flex;  
+        display: flex;
         justify-content: space-between;
     }
 
-    .prevButton span, .nextButton span {
+    .prevButton span,
+    .nextButton span {
         display: none;
     }
-
 }
-
-
-

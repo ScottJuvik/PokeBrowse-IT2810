@@ -13,11 +13,10 @@
         gap: 0.5rem;
         text-align: center;
 
-        h1 {
-            font-size: var(--font-size-5xl);
+        .title {
+            font-size: var(--font-size-4xl);
             line-height: var(--line-height-4xl);
             font-weight: bold;
-            color: var(--green);
         }
 
         & > * + * {

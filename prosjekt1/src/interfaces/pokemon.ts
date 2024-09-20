@@ -15,16 +15,16 @@ export interface Pokemon {
     }[];
 
     stats: {
-        base_stat: number,
+        base_stat: number;
         stat: {
-          name: string,
-        }
-      }[];
+            name: string;
+        };
+    }[];
 }
 
 export interface Stat {
-    name: string,
-    value: number,
+    name: string;
+    value: number;
 }
 
 export interface PokemonListResponse {

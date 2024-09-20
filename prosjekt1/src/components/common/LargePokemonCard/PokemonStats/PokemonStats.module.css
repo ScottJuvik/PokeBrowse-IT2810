@@ -23,12 +23,11 @@
     display: block;
     color: var(--text-primary);
     font-size: 0.9rem;
-    text-align: center; 
+    text-align: center;
 }
 
 @media screen and (max-width: 768px) {
-    .statItem{
+    .statItem {
         width: 50%;
     }
-    
 }
