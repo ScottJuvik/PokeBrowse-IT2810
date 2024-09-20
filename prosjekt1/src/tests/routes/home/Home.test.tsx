@@ -50,7 +50,7 @@ describe('Home', () => {
         fireEvent.click(randomButton);
 
         await waitFor(() => {
-            expect(mockNavigate).toHaveBeenCalledWith('/pokemon/25');
+            expect(mockNavigate).toHaveBeenCalledWith('pokemon/25');
         });
     });
 
@@ -59,7 +59,7 @@ describe('Home', () => {
 
         fireEvent.click(pokemonButton);
 
-        expect(mockNavigate).toHaveBeenCalledWith('/pokemon');
+        expect(mockNavigate).toHaveBeenCalledWith('pokemon');
     });
 
     it('matches the snapshot', () => {

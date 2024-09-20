@@ -5,6 +5,7 @@ import { MinimalPokemon } from '@/interfaces/pokemon';
 import { formatPokemonName } from '@/utils/text';
 import whosThatPokemon from '@assets/who.jpg';
 import { memo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import FavoriteButton from './FavoriteButton';
 import SkeletonLoader from './SkeletonLoader';
 import styles from './styles/Card.module.css';
@@ -35,6 +36,12 @@ const Card = ({ nameOrId, onFavoriteToggle }: CardProps) => {
         }
     };
 
+    const navigate = useNavigate();
+
+    const handleCardClick = () => {
+        navigate(`${pokemon?.id}`);
+    };
+
     if (isLoading) {
         return <SkeletonLoader />;
     }
@@ -45,7 +52,7 @@ const Card = ({ nameOrId, onFavoriteToggle }: CardProps) => {
     }
 
     return (
-        <div className={styles.pokemonCard}>
+        <div className={styles.pokemonCard} onClick={handleCardClick}>
             <FavoriteButton isFavorite={isFavorite} onClick={handleToggleFavorite} />
             {pokemon && (
                 <>

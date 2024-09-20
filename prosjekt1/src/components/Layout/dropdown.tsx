@@ -13,7 +13,9 @@ const Dropdown = () => {
 
     const getMenuColor = () => {
         switch (location.pathname) {
-            case '/project1/pokemon' || '/project1/favorites':
+            case '/project1/pokemon':
+                return '#2e3440';
+            case '/project1/favorites':
                 return '#2e3440';
             default:
                 return '#e1e4ea';
@@ -32,12 +34,12 @@ const Dropdown = () => {
 
             <ul className={`${styles.dropdown} ${isOpen ? styles.open : ''}`} onClick={toggleDropdown}>
                 <li>
-                    <NavLink to="/project1/" className={({ isActive }) => (isActive ? styles.active : '')}>
+                    <NavLink to="/project1/" end className={({ isActive }) => (isActive ? styles.active : '')}>
                         Home
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/project1/pokemon" className={({ isActive }) => (isActive ? styles.active : '')}>
+                    <NavLink to="/project1/pokemon" end className={({ isActive }) => (isActive ? styles.active : '')}>
                         Pokémon
                     </NavLink>
                 </li>

@@ -1,0 +1,29 @@
+.favoritesContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 2rem;
+        max-width: 1280px;
+
+        h1 {
+            font-size: var(--font-size-4xl);
+            color: var(--text-primary);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .favoritesContainer main {
+        h1 {
+            font-size: var(--font-size-6xl);
+        }
+    }
+}

@@ -10,7 +10,7 @@ const Navbar = () => (
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/project1/pokemon" className={({ isActive }) => (isActive ? styles.active : '')}>
+                <NavLink to="/project1/pokemon" end className={({ isActive }) => (isActive ? styles.active : '')}>
                     Pokémon
                 </NavLink>
             </li>

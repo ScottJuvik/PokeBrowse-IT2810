@@ -7,7 +7,7 @@ exports[`NotFoundPage > matches the snapshot 1`] = `
   >
     <img
       alt="Ditto"
-      src="/src/assets/ditto.png"
+      src="/project1/src/assets/ditto.png"
     />
     <h1
       class="text-4xl"
