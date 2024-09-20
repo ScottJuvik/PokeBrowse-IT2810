@@ -1,0 +1,148 @@
+.largePokemonCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-primary);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    position: relative;
+    transform: scale(0.9); 
+    transform-origin: top center; 
+}
+
+
+.pokemonHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    padding: 0 10px;
+}
+
+.returnButton {
+    position: absolute;
+    left: 0; 
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 32px;
+    transition: color 0.3s ease;
+}
+
+.returnButton svg {
+    fill: var(--text-primary);
+}
+
+.returnButton:hover svg {
+    fill: var(--text-white);
+}
+
+
+.pokemonHeart {
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    color: var(--text-label);
+    border: none;
+    cursor: pointer;
+    font-size: 32px;
+}
+
+.pokemonHeart:hover{
+    color: rgba(255, 0, 0,0.8);
+}
+
+.isFavourite {
+    color: red;
+    transition: color 0.3s ease;
+}
+
+.isFavourite:hover{
+    color: red;
+}
+
+.pokemonImageWrapper {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pokemonImage {
+    width: 300px;
+    height: 300px; 
+}
+
+
+.pokemonInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badgeWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navigationWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 20px;
+    position: relative;
+}
+
+.prevButton, .nextButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-label);
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    flex: 1;
+    max-width: 150px;
+    text-align: center;
+}
+
+.prevButton::before {
+    content: "◀";
+    font-size: var(--font-size-base);
+    color: var(--text-label);
+    margin-right: 4px;
+}
+
+.nextButton::after {
+    content: "▶";
+    font-size: var(--font-size-base);
+    color: var(--text-label);
+    margin-left: 4px;
+}
+
+.prevButton:hover, .nextButton:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.prevButton span, .nextButton span {
+    margin: 0; 
+    color: var(--text-label);
+    text-align: center; 
+}
+
+
+
