@@ -1,11 +1,11 @@
 import LargePokemonCard from '@/components/common/LargePokemonCard/LargePokemonCard';
 import Loader from '@/components/common/loader/Loader';
 import { usePokemon } from '@/hooks/usePokemon';
+import { MinimalPokemon, Stat } from '@/interfaces/pokemon';
 import ErrorPage from '@/routes/errors/ErrorPage';
+import { formatPokemonName } from '@/utils/text';
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from './PokemonViewPage.module.css';
-import { MinimalPokemon, Stat } from '@/interfaces/pokemon';
-import { formatPokemonName } from '@/utils/text';
 
 const PokemonViewPage = () => {
     const { nameOrId } = useParams<{ nameOrId: string }>();

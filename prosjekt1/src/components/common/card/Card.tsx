@@ -39,7 +39,7 @@ const Card = ({ nameOrId, onFavoriteToggle }: CardProps) => {
     const navigate = useNavigate();
 
     const handleCardClick = () => {
-        navigate(`${pokemon?.id}`);
+        navigate(`/project1/pokemon/${pokemon?.id}`);
     };
 
     if (isLoading) {
