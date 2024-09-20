@@ -1,0 +1,76 @@
+.skeletonCard {
+    width: 250px;
+    max-height: 290px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+    padding-top: 2rem;
+    background-color: var(--bg-primary);
+    gap: 4rem;
+}
+
+.skeletonImage {
+    width: 75%;
+    height: 150px;
+    min-height: 160px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+}
+
+.skeletonDetails {
+    width: 100%;
+    padding: 0.5rem 0;
+}
+
+.skeletonIndex,
+.skeletonName {
+    height: 16px;
+    background-color: #e0e0e0;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.skeletonIndex {
+    width: 40px;
+}
+
+.skeletonName {
+    width: 80%;
+}
+
+.skeletonBadges {
+    height: 30px;
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+}
+
+/* Animation */
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: 200px 0;
+    }
+}
+
+.skeletonCard div {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.2s infinite;
+}
+
+@media screen and (min-width: 768px) {
+    .skeletonCard {
+        width: 200px;
+        height: 250px;
+
+        .skeletonImage {
+            min-height: 123px;
+        }
+    }
+}

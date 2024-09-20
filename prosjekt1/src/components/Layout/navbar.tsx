@@ -5,17 +5,17 @@ const Navbar = () => (
     <nav className={styles.navbar}>
         <ul>
             <li>
-                <NavLink to="/" className={({ isActive }) => (isActive ? styles.active : '')}>
+                <NavLink to="/project1" className={({ isActive }) => (isActive ? styles.active : '')}>
                     Home
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/pokemon" className={({ isActive }) => (isActive ? styles.active : '')}>
+                <NavLink to="/project1/pokemon" className={({ isActive }) => (isActive ? styles.active : '')}>
                     Pokémon
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/favorites" className={({ isActive }) => (isActive ? styles.active : '')}>
+                <NavLink to="/project1/favorites" className={({ isActive }) => (isActive ? styles.active : '')}>
                     Favorites
                 </NavLink>
             </li>

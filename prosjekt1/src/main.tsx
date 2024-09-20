@@ -8,16 +8,21 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import PokemonPage from './routes/pokemon/PokemonPage';
 
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: '/project1',
         element: <Layout />,
         errorElement: <ErrorPage />,
         children: [
             {
                 index: true,
                 element: <Home />,
+            },
+            {
+                path: 'pokemon',
+                element: <PokemonPage />,
             },
             {
                 path: '*',
