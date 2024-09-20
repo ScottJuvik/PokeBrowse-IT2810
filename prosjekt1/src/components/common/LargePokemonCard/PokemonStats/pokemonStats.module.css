@@ -1,0 +1,28 @@
+.pokemonStats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.statItem {
+    width: 50%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.statLabel {
+    font-weight: bold;
+    color: var(--text-label);
+    text-align: center;
+}
+
+.statValue {
+    display: block;
+    color: var(--text-value);
+    font-size: 0.9rem;
+    text-align: center; 
+}

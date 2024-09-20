@@ -2,7 +2,7 @@
 
   
   .badge {
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
     padding: 0.25em 0.5em;
     border-radius: 6px;
     font-weight: bold;
