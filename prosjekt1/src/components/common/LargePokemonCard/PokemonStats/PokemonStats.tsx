@@ -26,11 +26,11 @@ const PokemonStats = ({ hp, attack, defense, specialAttack, specialDefense, spee
                 <span className={styles.statValue}>{defense}</span>
             </div>
             <div className={styles.statItem}>
-                <span className={styles.statLabel}>Special Attack</span>
+                <span className={styles.statLabel}>Sp.Attack</span>
                 <span className={styles.statValue}>{specialAttack}</span>
             </div>
             <div className={styles.statItem}>
-                <span className={styles.statLabel}>Special Defense</span>
+                <span className={styles.statLabel}>Sp.Defense</span>
                 <span className={styles.statValue}>{specialDefense}</span>
             </div>
             <div className={styles.statItem}>

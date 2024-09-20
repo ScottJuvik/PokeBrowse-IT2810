@@ -11,11 +11,10 @@
 
     /* Text */
     --text-primary: #2e3440;
+    --text-secondary: #777777;
     --text-white: #e7eaf0;
     --text-black: #000000;
-    --text-highlight: var(--red);
-    --text-label: #333;
-    --text-value: #666;
+    --text-highlight: var(--red);   
 
     /* Buttons */
     --btn-primary: #2563eb;

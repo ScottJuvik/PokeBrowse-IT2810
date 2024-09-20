@@ -2,12 +2,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 20px;
 }
 
 .statItem {
-    width: 50%;
-    margin-bottom: 10px;
+    width: 30%;
+    gap: 0.2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,14 +14,21 @@
 }
 
 .statLabel {
-    font-weight: bold;
-    color: var(--text-label);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
     text-align: center;
 }
 
 .statValue {
     display: block;
-    color: var(--text-value);
+    color: var(--text-primary);
     font-size: 0.9rem;
     text-align: center; 
+}
+
+@media screen and (max-width: 768px) {
+    .statItem{
+        width: 50%;
+    }
+    
 }

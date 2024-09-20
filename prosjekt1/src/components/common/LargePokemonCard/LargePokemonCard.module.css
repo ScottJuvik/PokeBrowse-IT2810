@@ -1,25 +1,34 @@
 .largePokemonCard {
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--bg-primary);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     max-width: 600px;
     position: relative;
-    transform: scale(0.9); 
     transform-origin: top center; 
 }
 
 
 .pokemonHeader {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     position: relative;
     padding: 0 10px;
+}
+
+.pokemonName {
+    font-size: var(--font-size-3xl);
+}
+
+.pokemonID {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
 }
 
 .returnButton {
@@ -41,7 +50,6 @@
     fill: var(--text-white);
 }
 
-
 .pokemonHeart {
     position: absolute;
     right: 0;
@@ -49,7 +57,6 @@
     color: var(--text-label);
     border: none;
     cursor: pointer;
-    font-size: 32px;
 }
 
 .pokemonHeart:hover{
@@ -72,8 +79,7 @@
 }
 
 .pokemonImage {
-    width: 300px;
-    height: 300px; 
+    width: 150px;
 }
 
 
@@ -87,7 +93,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 0.5rem;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -120,20 +126,6 @@
     text-align: center;
 }
 
-.prevButton::before {
-    content: "◀";
-    font-size: var(--font-size-base);
-    color: var(--text-label);
-    margin-right: 4px;
-}
-
-.nextButton::after {
-    content: "▶";
-    font-size: var(--font-size-base);
-    color: var(--text-label);
-    margin-left: 4px;
-}
-
 .prevButton:hover, .nextButton:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
@@ -142,6 +134,24 @@
     margin: 0; 
     color: var(--text-label);
     text-align: center; 
+}
+
+
+@media screen and (max-width: 768px) {
+    .largePokemonCard {
+        width: 75%;
+    }
+
+    .navigationWrapper {
+        width: 150%;
+        display: flex;  
+        justify-content: space-between;
+    }
+
+    .prevButton span, .nextButton span {
+        display: none;
+    }
+
 }
 
 

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './LargePokemonCard.module.css';
-import { Favorite, FavoriteFilled, ArrowLeft } from '@carbon/icons-react';
+import { Favorite, FavoriteFilled, ArrowLeft, ChevronLeft, ChevronRight } from '@carbon/icons-react';
 import PokemonStats from './PokemonStats/PokemonStats';
 import Description from '@/components/common/LargePokemonCard/PokemonDescription/PokemonDescription';
 import { Badge } from '@/components/ui/badge/Badge';
@@ -76,7 +76,7 @@ const LargePokemonCard = ({
                 </button>
 
                 <h1 className={styles.pokemonName}>
-                    {name} #{String(index).padStart(4, '0')}
+                    {name}
                 </h1>
 
                 <button
@@ -86,11 +86,17 @@ const LargePokemonCard = ({
                     onClick={toggleFavourite}
                 >
                     {isFavourite ? (
-                        <FavoriteFilled size={60} data-testid="carbon-icon-favorite-filled" />
+                        <FavoriteFilled size={36} data-testid="carbon-icon-favorite-filled" />
                     ) : (
-                        <Favorite size={60} data-testid="carbon-icon-favorite" />
+                        <Favorite size={36} data-testid="carbon-icon-favorite" />
                     )}
                 </button>
+            </div>
+            
+            <div>
+                <h2 className={styles.pokemonID}>
+                    #{String(index).padStart(4, '0')}
+                </h2>
             </div>
 
             <div className={styles.pokemonInfo}>
@@ -111,7 +117,8 @@ const LargePokemonCard = ({
 
                 <div className={styles.navigationWrapper}>
                     <button onClick={prevPokemon} className={styles.prevButton}>
-                        Previous Pokémon
+                        <ChevronLeft size={30}/> 
+                        <span>Previous Pokémon</span>
                     </button>
 
                     <div className={styles.badgeWrapper}>
@@ -121,7 +128,8 @@ const LargePokemonCard = ({
                     </div>
 
                     <button onClick={nextPokemon} className={styles.nextButton}>
-                        Next Pokémon
+                        <span>Next Pokémon</span>
+                        <ChevronRight size={30}/>
                     </button>
                 </div>
             </div>

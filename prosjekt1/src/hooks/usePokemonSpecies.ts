@@ -1,8 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery } from '@tanstack/react-query';
 
 const POKEAPI_BASE_URL = 'https://pokeapi.co/api/v2';
 
-// Function to fetch Pokémon species and English flavor text
 const fetchPokemonSpecies = async (nameOrId: string | number) => {
     const url = `${POKEAPI_BASE_URL}/pokemon-species/${nameOrId}`;
     const res = await fetch(url);
@@ -13,26 +12,23 @@ const fetchPokemonSpecies = async (nameOrId: string | number) => {
 
     const data = await res.json();
 
-    // Filter flavor text entries for the desired language (English)
     const englishFlavorTexts = data.flavor_text_entries.filter(
-        (entry: { language: { name: string }, version: { name: string } }) =>
-            entry.language.name === 'en'
+        (entry: { language: { name: string }; version: { name: string } }) => entry.language.name === 'en'
     );
 
-    // Return the last flavor text entry or a default message if none are found
-    const lastFlavorText = englishFlavorTexts.length > 0
-        ? englishFlavorTexts[englishFlavorTexts.length - 1].flavor_text
-        : 'No flavor text found';
+    const lastFlavorText =
+        englishFlavorTexts.length > 0
+            ? englishFlavorTexts[englishFlavorTexts.length - 1].flavor_text
+            : 'No flavor text found';
 
     return lastFlavorText;
 };
 
-// Hook for fetching Pokémon species
 export const usePokemonSpecies = (nameOrId: string | number) => {
     return useQuery({
-        queryKey: ['pokemonSpecies', nameOrId],
+        queryKey: ['pokemon-species', 'flavor-text', nameOrId],
         queryFn: () => fetchPokemonSpecies(nameOrId),
         enabled: !!nameOrId,
-        staleTime: 1000 * 60, // 1 minute
+        staleTime: 1000 * 60 * 60, // 1 Hour
     });
 };

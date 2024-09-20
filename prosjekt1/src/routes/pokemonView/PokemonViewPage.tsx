@@ -3,7 +3,7 @@ import Loader from '@/components/common/loader/Loader';
 import { usePokemon } from '@/hooks/usePokemon';
 import ErrorPage from '@/routes/errors/ErrorPage';
 import { useNavigate, useParams } from 'react-router-dom';
-import styles from './pokemonView.module.css';
+import styles from './PokemonViewPage.module.css';
 
 const PokemonViewPage = () => {
     const { idOrName } = useParams<{ idOrName: string }>();

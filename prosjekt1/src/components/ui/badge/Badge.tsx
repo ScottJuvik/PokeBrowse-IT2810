@@ -31,7 +31,7 @@ export const Badge = ({ type }: BadgeProps) => {
     const backgroundColor = typeColorMap[badgeType] || 'var(--color-unknown)';
 
     return (
-        <span className={`${styles.badge}`} style={{ backgroundColor: backgroundColor }}>
+        <span className={`${styles.badge} ${styles[`badge-${badgeType}`]}`} style={{ backgroundColor: backgroundColor }}>
             {toTitleCase(badgeType)}
         </span>
     );

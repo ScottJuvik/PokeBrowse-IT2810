@@ -63,6 +63,7 @@
     font-weight: bold;
     color: var(--text-primary);
 }
+
 .badgeWrapper {
     display: flex;
     justify-content: center;
