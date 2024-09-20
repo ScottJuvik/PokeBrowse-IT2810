@@ -1,49 +1,79 @@
 import { Badge } from '@/components/ui/badge/Badge';
-import { Favorite, FavoriteFilled } from '@carbon/icons-react';
-import { randomUUID } from 'crypto';
-import { useState } from 'react';
-import styles from './Card.module.css';
+import useFavorites from '@/hooks/useFavorites';
+import { usePokemon } from '@/hooks/usePokemon';
+import { MinimalPokemon } from '@/interfaces/pokemon';
+import { formatPokemonName } from '@/utils/text';
+import whosThatPokemon from '@assets/who.jpg';
+import { memo } from 'react';
+import { useNavigate } from 'react-router-dom';
+import FavoriteButton from './FavoriteButton';
+import SkeletonLoader from './SkeletonLoader';
+import styles from './styles/Card.module.css';
 
-export interface CardProps {
-    index: number;
-    name: string;
-    types: string[];
-    imageUrl: string;
+interface CardProps {
+    nameOrId: string | number;
+    onFavoriteToggle?: (isFavorite: boolean) => void;
 }
 
-const Card = ({ index, name, types, imageUrl }: CardProps) => {
-    const [isFavourite, setIsFavourite] = useState(false);
-
-    const toggleFavourite = () => {
-        setIsFavourite(!isFavourite);
+const Card = ({ nameOrId, onFavoriteToggle }: CardProps) => {
+    const {
+        data: pokemon,
+        isLoading,
+        error,
+    } = usePokemon(nameOrId) as {
+        data: MinimalPokemon | undefined;
+        isLoading: boolean;
+        error: Error | null;
     };
 
+    const { favorites, toggleFavorite } = useFavorites();
+    const isFavorite = pokemon ? favorites.includes(pokemon.id) : false;
+
+    const handleToggleFavorite = () => {
+        toggleFavorite(pokemon!.id);
+        if (onFavoriteToggle) {
+            onFavoriteToggle(!isFavorite);
+        }
+    };
+
+    const navigate = useNavigate();
+
+    const handleCardClick = () => {
+        navigate(`/project1/pokemon/${pokemon?.id}`);
+    };
+
+    if (isLoading) {
+        return <SkeletonLoader />;
+    }
+
+    if (error || !pokemon) {
+        console.error('Error loading Pokémon data:', error);
+        return <p>Error loading Pokémon data</p>;
+    }
+
     return (
-        <div className={styles.pokemonCard}>
-            <button
-                type="button"
-                className={`${styles.pokemonHeart} ${isFavourite && styles.isFavourite}`}
-                aria-label="Favourite Button"
-                onClick={toggleFavourite}
-            >
-                {isFavourite ? (
-                    <FavoriteFilled size={24} data-testid="carbon-icon-favorite-filled" />
-                ) : (
-                    <Favorite size={24} data-testid="carbon-icon-favorite" />
-                )}
-            </button>
-            <img src={imageUrl} alt={name} className={styles.pokemonImage} />
-            <div className={styles.pokemonDetails}>
-                <p className={styles.pokemonIndex}>#{index}</p>
-                <p className={styles.pokemonName}>{name}</p>
-            </div>
-            <div className={styles.badgeWrapper}>
-                {types.map(type => (
-                    <Badge key={randomUUID()} type={type} />
-                ))}
-            </div>
+        <div className={styles.pokemonCard} onClick={handleCardClick}>
+            <FavoriteButton isFavorite={isFavorite} onClick={handleToggleFavorite} />
+            {pokemon && (
+                <>
+                    <img
+                        src={pokemon.sprite ?? whosThatPokemon}
+                        alt={pokemon.name ?? 'Unknown Pokémon'}
+                        className={styles.pokemonImage}
+                    />
+                    <div className={styles.pokemonDetails}>
+                        <p className={styles.pokemonIndex}>#{pokemon.id}</p>
+                        <p className={styles.pokemonName}>{formatPokemonName(pokemon.name)}</p>
+                        <div className={styles.badgeWrapper}>
+                            {pokemon.types.map(type => (
+                                <Badge key={type} type={type} />
+                            ))}
+                        </div>
+                    </div>
+                </>
+            )}
         </div>
     );
 };
 
-export default Card;
+export default memo(Card);

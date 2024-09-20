@@ -11,7 +11,7 @@ exports[`Loader > matches the snapshot 1`] = `
   <img
     alt="Loading icon"
     class="_pokeball_f6abc6"
-    src="/src/assets/pokeball.svg"
+    src="/project1/src/assets/pokeball.svg"
     style="width: 5rem; height: 5rem;"
   />
   <p

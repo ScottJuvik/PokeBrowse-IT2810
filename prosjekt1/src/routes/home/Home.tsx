@@ -35,7 +35,7 @@ const Home = () => {
             element.onload = () => resolve();
             element.onerror = () => reject();
             if (element instanceof HTMLVideoElement) {
-                element.onloadeddata = () => resolve(); // For video
+                element.onloadeddata = () => resolve();
             }
         });
     };
@@ -63,7 +63,7 @@ const Home = () => {
 
     const handleSearchClick = () => {
         if (pokemon.trim()) {
-            navigate(`/pokemon/${pokemon}`);
+            navigate(`pokemon/${pokemon}`);
         }
     };
 
@@ -71,12 +71,12 @@ const Home = () => {
         const { data } = await refetch();
 
         if (data) {
-            navigate(`/pokemon/${data}`);
+            navigate(`pokemon/${data}`);
         }
     };
 
     const handlePokemonClick = () => {
-        navigate('/pokemon');
+        navigate('pokemon');
     };
 
     if (isLoading || isLoadingId) {

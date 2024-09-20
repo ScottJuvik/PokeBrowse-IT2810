@@ -3,6 +3,8 @@
     --red: #f66465;
     --blue: #2563eb;
 
+    --blue-hover: #1d4ed8;
+
     --bg-primary: #eceff4;
     --bg-not-found: #61b4e4;
     --bg-error-page: #581c87;
@@ -11,11 +13,11 @@
 
     /* Text */
     --text-primary: #2e3440;
-    --text-white: #e1e4ea;
-    --text-placeholder:#cccccc;
+    --text-secondary: #777777;
+    --text-white: #e7eaf0;
+    --text-placeholder: #cccccc;
     --text-black: #000000;
     --text-highlight: var(--red);
-
 
     /* Buttons */
     --btn-primary: #2563eb;
@@ -25,23 +27,23 @@
     /* Links */
     --link-hover-color: #1d4ed8;
 
-    /* Badges */ 
-    --color-normal: #A8A77A;
-    --color-fire: #EE8130;
-    --color-water: #6390F0;
-    --color-electric: #F7D02C;
-    --color-grass: #7AC74C;
-    --color-ice: #96D9D6;
-    --color-fighting: #C22E28;
-    --color-poison: #A33EA1;
-    --color-ground: #E2BF65;
-    --color-flying: #A98FF3;
-    --color-psychic: #F95587;
-    --color-bug: #A6B91A;
-    --color-rock: #B6A136;
+    /* Badges */
+    --color-normal: #a8a77a;
+    --color-fire: #ee8130;
+    --color-water: #6390f0;
+    --color-electric: #f7d02c;
+    --color-grass: #7ac74c;
+    --color-ice: #96d9d6;
+    --color-fighting: #c22e28;
+    --color-poison: #a33ea1;
+    --color-ground: #e2bf65;
+    --color-flying: #a98ff3;
+    --color-psychic: #f95587;
+    --color-bug: #a6b91a;
+    --color-rock: #b6a136;
     --color-ghost: #735797;
-    --color-dragon: #6F35FC;
+    --color-dragon: #6f35fc;
     --color-dark: #705746;
-    --color-steel: #B7B7CE;
-    --color-fairy: #D685AD;
+    --color-steel: #b7b7ce;
+    --color-fairy: #d685ad;
 }

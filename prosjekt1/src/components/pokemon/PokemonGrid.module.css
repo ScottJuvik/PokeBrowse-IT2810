@@ -1,0 +1,14 @@
+.gridSection {
+    max-width: 1280px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+    .gridContainer {
+        justify-content: start;
+    }
+}

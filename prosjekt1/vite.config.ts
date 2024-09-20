@@ -4,6 +4,7 @@ import path from 'path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+    base: '/project1/',
     plugins: [react()],
     server: {
         open: true,

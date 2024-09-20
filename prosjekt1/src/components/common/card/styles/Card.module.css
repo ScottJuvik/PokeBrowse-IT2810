@@ -1,0 +1,78 @@
+@import '@styles/variables.css';
+
+.pokemonCard {
+    width: 250px;
+    max-height: 300px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    padding: 0 1rem;
+    padding-top: 2rem;
+    background-color: var(--bg-primary);
+
+    &:hover {
+        img {
+            transform: scale(1.2);
+        }
+    }
+}
+
+.pokemonImage {
+    width: 75%;
+    height: auto;
+    min-height: 160px;
+    transition: transform 0.3s ease;
+    user-select: none;
+}
+
+.pokemonDetails {
+    width: 100%;
+    padding: 0.5rem 0;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    text-align: left;
+}
+
+.pokemonIndex {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-xs);
+    color: #9e9e9e;
+}
+
+.pokemonName {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.badgeWrapper {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .pokemonCard {
+        width: 200px;
+        height: 260px;
+
+        .pokemonImage {
+            min-height: 123px;
+        }
+    }
+}

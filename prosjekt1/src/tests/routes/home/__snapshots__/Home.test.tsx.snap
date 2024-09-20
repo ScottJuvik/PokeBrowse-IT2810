@@ -16,7 +16,7 @@ exports[`Home > matches the snapshot 1`] = `
         preload="auto"
       >
         <source
-          src="/videos/may_waterfall.mp4"
+          src="/project1/videos/may_waterfall.mp4"
           type="video/mp4"
         />
       </video>
