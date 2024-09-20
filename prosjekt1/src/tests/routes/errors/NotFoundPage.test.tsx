@@ -1,41 +1,61 @@
-import NotFoundPage from '@/routes/errors/NotFoundPage';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen } from '@testing-library/react';
-import { createMemoryRouter, RouterProvider } from 'react-router-dom';
+import NotFoundPage from '@routes/errors/NotFoundPage';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 
-const queryClient = new QueryClient();
+const mockNavigate = vi.fn();
 
-describe('notFoundPage', () => {
-    it('renders an error 404 page', () => {
-        const router = createMemoryRouter(
-            [
-                {
-                    path: '/',
-                    element: <NotFoundPage />,
-                },
-            ],
-            {
-                initialEntries: ['/'],
-            }
+vi.mock('react-router-dom', async () => {
+    const actual = await vi.importActual('react-router-dom');
+    return {
+        ...actual,
+        useNavigate: () => mockNavigate,
+    };
+});
+
+beforeEach(() => {
+    mockNavigate.mockClear();
+});
+
+describe('NotFoundPage', () => {
+    const renderComponent = () => {
+        const { asFragment } = render(
+            <MemoryRouter>
+                <NotFoundPage />
+            </MemoryRouter>
         );
 
-        const { container } = render(
-            <QueryClientProvider client={queryClient}>
-                <RouterProvider router={router} />
-            </QueryClientProvider>
-        );
+        return {
+            image: screen.getByRole('img'),
+            heading: screen.getByRole('heading'),
+            button: screen.getByRole('button'),
+            asFragment,
+        };
+    };
 
-        // assert that image is shown on page
-        const image = screen.getByRole('img', { name: 'Ditto' });
+    it('renders the error 404 page with all elements', () => {
+        const { image, heading, button } = renderComponent();
+
         expect(image).toBeInTheDocument();
 
-        // assert that title text is shown on page
-        expect(screen.getByText("Oh no! It's a Ditto!")).toBeInTheDocument();
+        expect(heading).toBeInTheDocument();
 
-        // assert that error text is shown on page (two paragraphs)
-        // we do this by using a queryselector of the render
-        const paragraphs = container.querySelectorAll('p');
-        expect(paragraphs).toHaveLength(2);
+        const subtitle = screen.getByText(/transformed and escaped/i);
+        expect(subtitle).toBeInTheDocument();
+
+        const additionalText = screen.getByText(/hide and seek/i);
+        expect(additionalText).toBeInTheDocument();
+        expect(button).toBeInTheDocument();
+    });
+
+    it('navigates to home when the "Return to Safety" button is clicked', () => {
+        const { button } = renderComponent();
+        fireEvent.click(button);
+        expect(mockNavigate).toHaveBeenCalledWith('/');
+    });
+
+    it('matches the snapshot', () => {
+        const { asFragment } = renderComponent();
+        expect(asFragment()).toMatchSnapshot();
     });
 });

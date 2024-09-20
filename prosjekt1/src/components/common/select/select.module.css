@@ -1,0 +1,22 @@
+.selectContainer {
+    font-size: clamp(var(--font-size-base), var(--font-size-lg), var(--font-size-xl));
+    font-weight: var(--font-weight-semibold);
+    background-color: var(--text-primary);
+    color: var(--text-white);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    min-width: fit-content;
+    width: 225px;
+
+    /* Custom arrow styling */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    background-image: url(@assets/pokeball.svg);
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1.2rem;
+
+}

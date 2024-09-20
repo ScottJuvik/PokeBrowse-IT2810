@@ -1,7 +1,7 @@
-import NotFoundPage from '@/routes/errors/NotFoundPage';
+import ErrorPage from '@/routes/errors/ErrorPage';
+import Home from '@/routes/home/Home';
 import Layout from '@components/Layout/layout.tsx';
-import ErrorPage from '@routes/errors/ErrorPage.tsx';
-import Home from '@routes/home/home.tsx';
+import NotFoundPage from '@routes/errors/NotFoundPage.tsx';
 import '@styles/global.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
@@ -9,10 +9,11 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import PokemonViewPage from './routes/pokemonView/PokemonViewPage';
+import PokemonPage from './routes/pokemon/PokemonPage';
 
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: '/project1',
         element: <Layout />,
         errorElement: <ErrorPage />,
         children: [
@@ -21,8 +22,12 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: '/pokemon/:idOrName',
+                path: 'pokemon/:nameOrId',
                 element: <PokemonViewPage />,
+            },
+            {
+                path: 'pokemon',
+                element: <PokemonPage />,
             },
             {
                 path: '*',

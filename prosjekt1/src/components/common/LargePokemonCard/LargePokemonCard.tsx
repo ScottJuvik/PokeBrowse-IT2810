@@ -18,7 +18,6 @@ interface LargePokemonCardProps {
     specialAttack: number;
     specialDefense: number;
     speed: number;
-    abilities: string;
     types: string[];
     description: string;
     nextPokemon: () => void;
@@ -55,11 +54,11 @@ const LargePokemonCard = ({
 
     // Navigate to last page used
     const handleGoBack = () => {
-        if (location.state?.from === '/favorites') {
+        if (location.state?.from === '/project1/favorites') {
             navigate('/favorites');
         } else if (location.state?.from === '/home') {
         } else {
-            navigate('/pokemon');
+            navigate('/project1/pokemon');
         }
     };
 

@@ -1,0 +1,39 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ErrorPage > matches the snapshot 1`] = `
+<main
+  class="_errorContainer_ae0c75"
+  data-testid="errorPage-wrapper"
+>
+  <img
+    alt="Error Image"
+    aria-label="Error image"
+    src="/src/assets/gengar.png"
+  />
+  <h1>
+    Uh-oh, Gengar's Mischief!
+  </h1>
+  <p
+    class="_sorryText_ae0c75"
+  >
+    Sorry, an unexpected error has occured.
+  </p>
+  <p
+    class="_prankText_ae0c75"
+  >
+    Gengar's ghostly pranks seem to have caused a disturbance in the web continuum.
+  </p>
+  <p
+    class="_errorText_ae0c75"
+  >
+    Something went wrong!
+  </p>
+  <p
+    class="_statusText_ae0c75"
+  >
+    <i>
+      Mysterious forces at work...
+    </i>
+  </p>
+</main>
+`;
