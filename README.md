@@ -87,56 +87,41 @@ As shown below in the coverage report, we have --- tests and --- files. Each fil
 
 ## API-usage
 
-The Restful API we chose for the project is called [PokeAPI](https://pokeapi.co/docs/v2). This API provides easy access to statistics for pokemons.
+The Restful API we chose for the project is called [PokeAPI](https://pokeapi.co/docs/v2). This API provides easy access to statistics for all pokémon.
 
-When we get pokémons on the pokémons page with no filters applied, the API call is as follows:
+We have saved the base URL of the api so that it is easier to use frequently. Which looks like this in our code: 
+```const POKEAPI_BASE_URL = 'https://pokeapi.co/api/v2';``` 
 
-```
-https://pokeapi.co/api/v2/pokemon?limit={resultsPerPage}&offset={pageNumber - 1}
-```
-
-Then for each of the pokémons, we have to call on the API to get the data for the pokémon to display on the card component. The API call is as follows:
+When we get pokémon on the pokémon page with no filters applied, the API call is as follows:
 
 ```
-https://pokeapi.co/api/v2/pokemon/{pokemonName or pokemonID}
+const url = `${POKEAPI_BASE_URL}/pokemon?offset=${offset}&limit=${limit}`;
 ```
 
-### Sorting
+Then for each of the pokémon, we have to call on the API to get the data for the pokémon to display on the card component. The API call is as follows:
+
+```
+const url = `${POKEAPI_BASE_URL}/pokemon/${nameOrId}`;
+```
+
+<!-- ### Sorting
 
 We realised that the API we used offered minimal support for filtering and sorting, so we had to do it by ourselves.
 
-To be able to sort on the pokedex number of a pokémon, we store the pokedex number in a list in local storage. When we get the pokémons from the API, we sort them by the pokedex number in the list. This is done both ascendingly and descendingly. Then each card component has to call on the previous API endpoint.
-
-### Filtering
-
-However, when we want to filter on color, we have to do it by ourselves. We do this by first calling on the API to find all pokémon species that are of a certain color. Then we call on the API to get the data for each of these species. This is done by using the species url that is provided in the first call. Then, each card component has to call on the API to get the data for the pokémon it is supposed to display. This is done by using the url that is provided in the second call. Due to all this logic, having 20 results per page and filtering on color will produce a lot of API calls which we can't avoid.
-
-The API calls are as follows:
-
-```
-https://pokeapi.co/api/v2/pokemon-color/{colorName}
-```
-
-Then for each of the pokemon species, we have to call on the API to get the data of all their varieties. This will only be done on the amount of species we need, so if there are 20 results per page it will be done on 20 species. The API call is as follows:
-
-```
-https://pokeapi.co/api/v2/pokemon-species/{pokemonSpeciesName}
-```
-
-Then for each of the pokémons we want to display, we must do the previously mentioned API call to get the data for the pokémon. The API call is as follows:
-
-```
-https://pokeapi.co/api/v2/pokemon/{pokemonID}
-```
-
-As a side note, we thought we could save ourselves some API calls by assuming the name of the pokémon species is the same as the pokémon name. This is not the case, as seen in the example where Aegislash is a species but the variants of the species are Aegislash Shield and Aegislash Blade. Trying to do an API call on "aegislash" alone would produce an error.
+To be able to sort on the pokedex number of a pokémon, we store the pokedex number in a list in local storage. When we get the pokémon from the API, we sort them by the pokedex number in the list. This is done both ascendingly and descendingly. Then each card component has to call on the previous API endpoint. -->
 
 ### Search
 
-The API also does not have support for search, so we solved this by making the search field navigate the user to `/pokemon/{pokemonName}`. This will make the page `Pokemons.tsx` do an API call on the following endpoint:
+The API also does not have support for search, so we solved this by making the search field navigate the user to `/pokemon/{nameOrId}`. This will make the page `PokemonViewPage.tsx` do an API call on the following endpoint:
 
 ```
-https://pokeapi.co/api/v2/pokemon/{pokemonName}
+const url = `${POKEAPI_BASE_URL}/pokemon/${nameOrId}`;
 ```
 
-If the user searches for a pokémon that does not exist, the page will display an error message (404), displaying the pokémon Ditto. However, if the user searched for an existing pokémon such as "lickitung", the page will display the data for Lickitung.
+If the user searches for a pokémon that does not exist, the page will display an error message (404), displaying the pokémon Ditto which is a pokemon that can transform into any other pokemon. However, if the user searched for an existing pokémon such as "lickitung", the page will display the data for Lickitung.
+
+### Random pokémon
+
+We have a button on the home page that takes you to a random pokémon if you do not know who to search for, and cant be bothered looking through them all.
+
+This is done by calling the API endpoint ```'https://pokeapi.co/api/v2/pokemon-species/'``` and picking a random pokémons id with ```Math.random```. This then takes you to the ```PokemonViewPage.tsx``` for that pokémon.
