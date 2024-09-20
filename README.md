@@ -1,19 +1,22 @@
 # IT2810 Project 1: PokéBrowse
 
-Welcome to Group 4's submission for Project 1 in the IT2810 course. This project is a web application that allows users to explore detailed information about various Pokémon. Users can browse through different Pokémon, filter them by characteristics, search by name or Pokédex number, and mark their favorite Pokémon for quick access later.
+This is Group 4's submission for Project 1 in the IT2810 course. This project is a web application that allows users to explore detailed information about various Pokémon. Users can browse through different Pokémon, filter them by characteristics, search by name or Pokédex number, and mark their favorite Pokémon for quick access later.
 
 ## Features
 
 - **Explore Pokémon:** View a list of Pokémon with basic information such as name, type, and an image.
 - **Detailed View:** Click on a Pokémon to see more details, including stats, abilities, and other attributes.
-- **Search and Filter:** Easily search for specific Pokémon by name or number, and filter them by color.
+- **Search and Filter:** Easily search for specific Pokémon by name or number, and filter them by ascending/descending order, and A-Z/Z-A.
 - **Favorite Pokémon:** Mark Pokémon as favorites and view them later on a dedicated favorites page.
 
-## Project Structure
 
-The project is structured as follows:
+## Link to Git-Repository
 
+[Repo](https://git.ntnu.no/IT2810-H24/T04-Project-1)
 
+## Link to Virtual Machine
+
+[IT2801-04/project1](http://it2810-04.idi.ntnu.no/project1/)
 
 ## Installation
 
@@ -21,12 +24,12 @@ The project is structured as follows:
 2. Run `npm install` in the root folder
 3. Run `npm run dev` in the root folder
 
-## Linting and Formatting
+## Linting
 
 We use eslint to lint our code. To run the linter, run `npm run lint` in the root folder.
 
 
-## Formating
+## Formatting
 
 We use Prettier to automatically format the codebase, by using `npm run format`
 
@@ -42,20 +45,16 @@ As shown below in the coverage report, we have --- tests and --- files. Each fil
   - Renders pokemon name and number
   - renders pokemon image
   - navigates to pokemon page on click
-- FavouriteButton
+- Button
   - Snapshot test
   - Renders component
   - Adds pokemon to favourites on click
   - Changes style on click
-- Filter-Select
-  - Snapshot test
-  - Render test
-  - Can change option
 - Navbar
   - Snapshot test navbar
   - Render test
   - Navigate to home
-  - Navigate to favourites-page
+  - Navigate to favorites-page
 - Pagination
   - Snapshot test
   - Render test
@@ -67,6 +66,22 @@ As shown below in the coverage report, we have --- tests and --- files. Each fil
   - Change textfield value
   - Correct navigation on search submit
   - Case sensitivity test
+- Select
+  - Snapshot test
+  - Render test
+  - Can change selected value
+  - Renders selected value correctly
+- Loader
+  - Snapshot test
+  - Render test
+  - Displays loader correctly
+- Badge
+  - Snapshot test
+  - Render test
+  - Displays badge text correctly
+  - Applies correct styles based on type
+
+
 
 ![Coverage report]()
 
@@ -74,7 +89,7 @@ As shown below in the coverage report, we have --- tests and --- files. Each fil
 
 The Restful API we chose for the project is called [PokeAPI](https://pokeapi.co/docs/v2). This API provides easy access to statistics for pokemons.
 
-When we get pokémons on the home page with no filters applied, the API call is as follows:
+When we get pokémons on the pokémons page with no filters applied, the API call is as follows:
 
 ```
 https://pokeapi.co/api/v2/pokemon?limit={resultsPerPage}&offset={pageNumber - 1}
@@ -118,10 +133,10 @@ As a side note, we thought we could save ourselves some API calls by assuming th
 
 ### Search
 
-The API also does not have support for search, so we solved this by making the search field navigate the user to `/pokemon/{pokemonName}`. This will make the page `PokemonPage.tsx` do an API call on the following endpoint:
+The API also does not have support for search, so we solved this by making the search field navigate the user to `/pokemon/{pokemonName}`. This will make the page `Pokemons.tsx` do an API call on the following endpoint:
 
 ```
 https://pokeapi.co/api/v2/pokemon/{pokemonName}
 ```
 
-If the user searches for a pokémon that does not exist, the page will display an error message. However, if the user searched for an existing pokémon such as "lickitung", the page will display the data for Lickitung.
+If the user searches for a pokémon that does not exist, the page will display an error message (404), displaying the pokémon Ditto. However, if the user searched for an existing pokémon such as "lickitung", the page will display the data for Lickitung.
