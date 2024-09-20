@@ -1,0 +1,17 @@
+.pokemonHeart {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 1;
+}
+
+.isFavorite {
+    color: red;
+}
+
+button {
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}

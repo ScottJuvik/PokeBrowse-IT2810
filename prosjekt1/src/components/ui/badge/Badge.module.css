@@ -1,7 +1,6 @@
 @import '@styles/variables.css';
 
-  
-  .badge {
+.badge {
     font-size: var(--font-size-xs);
     padding: 0.25em 0.5em;
     border-radius: 6px;
@@ -10,10 +9,13 @@
     display: inline-block;
     text-align: center;
     white-space: nowrap;
-  }
-  
-  /* White text for darker backgrounds */
-  .badge-fire {
+    width: 40%;
+    min-width: fit-content;
+    max-width: 60px;
+}
+
+/* White text for darker backgrounds */
+.badge-fire {
     background-color: var(--color-fire);
     color: var(--text-white);
 }
@@ -63,8 +65,8 @@
     color: var(--text-white);
 }
 
- /* black text for lighter backgrounds */
- .badge-normal {
+/* black text for lighter backgrounds */
+.badge-normal {
     background-color: var(--color-normal);
     color: var(--text-black);
 }
