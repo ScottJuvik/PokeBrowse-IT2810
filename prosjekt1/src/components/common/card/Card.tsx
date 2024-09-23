@@ -52,26 +52,28 @@ const Card = ({ nameOrId, onFavoriteToggle }: CardProps) => {
     }
 
     return (
-        <div className={styles.pokemonCard} onClick={handleCardClick}>
+        <div className={styles.pokemonCard}>
             <FavoriteButton isFavorite={isFavorite} onClick={handleToggleFavorite} />
-            {pokemon && (
-                <>
-                    <img
-                        src={pokemon.sprite ?? whosThatPokemon}
-                        alt={pokemon.name ?? 'Unknown Pokémon'}
-                        className={styles.pokemonImage}
-                    />
-                    <div className={styles.pokemonDetails}>
-                        <p className={styles.pokemonIndex}>#{pokemon.id}</p>
-                        <p className={styles.pokemonName}>{formatPokemonName(pokemon.name)}</p>
-                        <div className={styles.badgeWrapper}>
-                            {pokemon.types.map(type => (
-                                <Badge key={type} type={type} />
-                            ))}
+            <div onClick={handleCardClick}>
+                {pokemon && (
+                    <>
+                        <img
+                            src={pokemon.sprite ?? whosThatPokemon}
+                            alt={pokemon.name ?? 'Unknown Pokémon'}
+                            className={styles.pokemonImage}
+                        />
+                        <div className={styles.pokemonDetails}>
+                            <p className={styles.pokemonIndex}>#{pokemon.id}</p>
+                            <p className={styles.pokemonName}>{formatPokemonName(pokemon.name)}</p>
+                            <div className={styles.badgeWrapper}>
+                                {pokemon.types.map(type => (
+                                    <Badge key={type} type={type} />
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                </>
-            )}
+                    </>
+                )}
+            </div>
         </div>
     );
 };
