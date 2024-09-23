@@ -6,7 +6,7 @@ This is Group 4's submission for Project 1 in the IT2810 course. This project is
 
 - **Explore Pokémon:** View a list of Pokémon with basic information such as name, type, and an image.
 - **Detailed View:** Click on a Pokémon to see more details, including stats, abilities, and other attributes.
-- **Search and Filter:** Easily search for specific Pokémon by name or number, and filter them by ascending/descending order, and A-Z/Z-A.
+- **Search:** Easily search for specific Pokémon by name or number from the home page.
 - **Favorite Pokémon:** Mark Pokémon as favorites and view them later on a dedicated favorites page.
 
 
