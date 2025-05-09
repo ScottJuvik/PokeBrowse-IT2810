@@ -10,14 +10,6 @@ This is Group 4's submission for Project 1 in the IT2810 course. This project is
 - **Favorite Pokémon:** Mark Pokémon as favorites and view them later on a dedicated favorites page.
 
 
-## Link to Git-Repository
-
-[Repo](https://git.ntnu.no/IT2810-H24/T04-Project-1)
-
-## Link to Virtual Machine
-
-[IT2801-04/project1](http://it2810-04.idi.ntnu.no/project1/)
-
 ## Installation
 
 1. Clone the repository
