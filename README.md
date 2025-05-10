@@ -1,6 +1,49 @@
 # IT2810 Project 1: PokéBrowse
 
 This is Group 4's submission for Project 1 in the IT2810 course. This project is a web application that allows users to explore detailed information about various Pokémon. Users can browse through different Pokémon, filter them by characteristics, search by name or Pokédex number, and mark their favorite Pokémon for quick access later.
+## 📸 Screenshots
+
+Here are some screenshots showcasing the core functionality and design of **PokéBrowse**:
+
+<div align="center">
+
+### 🏠 Home Page
+
+<a href="./prosjekt1/src/assets/MainPage.png">
+  <img src="./prosjekt1/src/assets/MainPage.png" alt="Home Page" width="600"/>
+</a>
+
+</div>
+
+---
+
+<div align="center">
+
+### 📖 Pokédex Page
+
+<a href="./prosjekt1/src/assets/PokeDex.png">
+  <img src="./prosjekt1/src/assets/PokeDex.png" alt="Pokédex Page" width="600"/>
+</a>
+
+</div>
+
+---
+
+<div align="center">
+
+### 🔍 Pokémon Stats Page
+
+<a href="./prosjekt1/src/assets/PokeStats.png">
+  <img src="./prosjekt1/src/assets/PokeStats.png" alt="Pokémon Stats Page" width="600"/>
+</a>
+
+</div>
+
+---
+
+
+
+
 
 ## Features
 
